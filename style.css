@@ -1,0 +1,56 @@
+.grilla-principal{
+    background-color: antiquewhite;
+}
+
+.mi-col{
+    border: 1px solid black;
+}
+
+.img-perfil{
+    width:50%;
+    height:50%;
+}
+
+.encabezado{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: bold;
+    border-bottom: 1px solid black;
+    display:flex;
+    align-content: flex-start;
+    margin: 15% 0;
+}
+
+.lista-contacto li{
+    display:flex;
+    flex-direction: row;
+}
+
+.icono{
+    width:10%;
+    height: 10%;
+    margin-right: 5%;
+}
+
+.fila-datos-basicos h1{
+    margin: 5% 0;
+}
+
+
+
+@media screen and (max-width:768px) {
+    .grilla-principal{
+        background-color:beige;
+    }
+
+    .lista-contacto li{
+        display: block;
+    }
+
+    .lista-contacto p{
+        font-size: .6rem;
+    }
+
+    .fila-datos-basicos h1, h3, p{
+        font-size: .8rem;
+    }
+}
