@@ -3,7 +3,15 @@
 }
 
 .mi-col{
-    border: 1px solid black;
+    border: 5px solid rgb(211, 243, 253);
+}
+
+.mi-col-izquierda{
+    background-color:rgb(111, 207, 236)
+}
+
+.mi-col-derecha{
+    background-color: white
 }
 
 .img-perfil{
@@ -23,6 +31,7 @@
 .lista-contacto li{
     display:flex;
     flex-direction: row;
+    margin-bottom: 5%;
 }
 
 .icono{
@@ -35,6 +44,24 @@
     margin: 5% 0;
 }
 
+.separador-secciones{
+    border-bottom: 1px solid gray;
+    margin-bottom: 10%;
+}
+
+.separador-secciones h5{
+    font-weight: bold;
+}
+
+.cargo{
+    color:darkgray;
+    font-weight: bold;
+}
+
+.item{
+    text-decoration: underline;
+    font-weight: bold;
+}
 
 
 @media screen and (max-width:768px) {
