@@ -1,5 +1,22 @@
+.navbar img{
+    width: 20%;
+    height: 20%;
+}
+
+.navbar .btn{
+    border-style: none;
+}
+
+.navbar .fa-user:hover{
+    color:rgb(37, 149, 224);
+}
+
+.navbar i:hover{
+    color:white;
+}
+
 .grilla-principal{
-    background-color: antiquewhite;
+    background-color:aquamarine;
 }
 
 .mi-col{
@@ -17,6 +34,8 @@
 .img-perfil{
     width:50%;
     height:50%;
+    border-radius: 50%;
+    margin-top: 5%;
 }
 
 .encabezado{

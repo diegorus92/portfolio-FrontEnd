@@ -6,10 +6,83 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Maqueta de Curriculum Vitae</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/afdc4a79e1.js" crossorigin="anonymous"></script>
     <link href="style.css" rel="stylesheet" type="text/css"></link>
   </head>
   <body>
     
+    <!--Barra de navegación-->
+    <nav class="navbar navbar-expand-lg bg-secondary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">
+            <img src="//argentinaprograma.inti.gob.ar/pluginfile.php/1/theme_moove/logo/1657411642/APLogo-20-20.png" alt="argpprod">
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">
+                    <i class="fa-brands fa-facebook fa-2x"></i>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                    <i class="fa-brands fa-square-instagram fa-2x"></i>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                    <i class="fa-brands fa-linkedin fa-2x"></i>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                    <i class="fa-brands fa-square-twitter fa-2x"></i>
+                </a>
+              </li>
+              <li class="nav-item">
+                <!-- Button trigger modal -->
+                <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#loginModal">
+                    <i class="fa-solid fa-user fa-3x"></i>
+                </button>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Login</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3 row">
+                        <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control-plaintext" id="staticEmail" value="email@example.com">
+                        </div>
+                      </div>
+                      <div class="mb-3 row">
+                        <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+                        <div class="col-sm-10">
+                          <input type="password" class="form-control" id="inputPassword">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary">Iniciar sesión</button>
+                </div>
+            </div>
+            </div>
+        </div>
+    </nav>
+
+    <!--Grilla principal de contenido --> 
     <div class="container-sm text-center grilla-principal">
         <div class="row">
         <!--Columna izquierda-->
@@ -143,101 +216,6 @@
                         <p>Ciudad, País</p>
                     </li>
 
-                    <li>
-                        <svg class="icono" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                                viewBox="0 0 490 490" style="enable-background:new 0 0 490 490;" xml:space="preserve">
-                            <g id="XMLID_21_">
-                                <g>
-                                    <g>
-                                        <path d="M460,0H30C13.458,0,0,13.458,0,30v430c0,16.542,13.458,30,30,30h430c16.542,0,30-13.458,30-30V30
-                                            C490,13.458,476.542,0,460,0z M470,460c0,5.514-4.486,10-10,10H30c-5.514,0-10-4.486-10-10V30c0-5.514,4.486-10,10-10h430
-                                            c5.514,0,10,4.486,10,10V460z"/>
-                                        <path d="M345,180h-50v-49.965c0.076-0.015,0.151-0.027,0.219-0.035H335c5.523,0,10-4.477,10-10V50c0-5.522-4.477-10-10-10h-60
-                                            c-41.268,0-60.95,22.039-70.194,40.528C195.111,99.916,195,119.189,195,120v60h-50c-5.523,0-10,4.477-10,10v80
-                                            c0,5.523,4.477,10,10,10h40v155c0,5.523,4.477,10,10,10h90c5.523,0,10-4.477,10-10V270h40c4.977,0,9.196-3.659,9.899-8.586l10-70
-                                            c0.41-2.87-0.445-5.776-2.345-7.966C350.655,181.258,347.899,180,345,180z M326.327,250H285c-5.523,0-10,4.477-10,10v165h-70V270
-                                            c0-5.522-4.477-10-10-10h-40v-60h50c5.523,0,10-4.477,10-10v-69.969c0.001-0.158,0.189-15.92,7.977-31.119
-                                            C232.81,69.728,250.313,60,275,60h50v50h-30c-9.695,0-20,7.009-20,20v60c0,5.523,4.477,10,10,10h48.47L326.327,250z"/>
-                                    </g>
-                                </g>
-                            </g>
-                        </svg>
-                        <p><a href="#" target="_blank">ArmandoPaginas@yahoo.com.br</a></p>
-                    </li>
-
-                    <li>
-                        <svg class="icono" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                                viewBox="0 0 48 48" style="enable-background:new 0 0 48 48;" xml:space="preserve">
-                            <g>
-                                <g>
-                                    <path d="M40.4,5.5H35.6c-1.434,0-2.6,1.166-2.6,2.6V12.9c0,1.434,1.166,2.6,2.6,2.6H40.4c1.434,0,2.6-1.166,2.6-2.6V8.1
-                                        C43,6.666,41.834,5.5,40.4,5.5z M41,12.9c0,0.331-0.269,0.6-0.6,0.6H35.6c-0.331,0-0.6-0.269-0.6-0.6V8.1
-                                        c0-0.331,0.269-0.6,0.6-0.6H40.4c0.331,0,0.6,0.269,0.6,0.6V12.9z"/>
-                                    <path d="M37.8,0.5H10.2C4.576,0.5,0,5.089,0,10.731V17.5v2v17.77C0,42.911,4.576,47.5,10.2,47.5h27.6
-                                        c5.624,0,10.2-4.589,10.2-10.23V19.5v-2v-6.769C48,5.089,43.424,0.5,37.8,0.5z M46,37.27c0,4.538-3.679,8.23-8.2,8.23H10.2
-                                        c-4.522,0-8.2-3.692-8.2-8.23V19.5h12.221C11.62,22.043,10,25.584,10,29.5c0,7.72,6.28,14,14,14s14-6.28,14-14
-                                        c0-3.916-1.62-7.457-4.221-10H46V37.27z M36,29.5c0,6.617-5.383,12-12,12s-12-5.383-12-12s5.383-12,12-12S36,22.883,36,29.5z
-                                        M31.174,17.5c-2.101-1.261-4.55-2-7.174-2s-5.073,0.739-7.174,2H2v-6.769C2,6.192,5.679,2.5,10.2,2.5h27.6
-                                        c4.521,0,8.2,3.692,8.2,8.231V17.5H31.174z"/>
-                                    <path d="M15,29.5c0,4.962,4.037,9,9,9s9-4.038,9-9s-4.037-9-9-9S15,24.538,15,29.5z M31,29.5c0,3.86-3.141,7-7,7s-7-3.14-7-7
-                                        s3.141-7,7-7S31,25.64,31,29.5z"/>
-                                </g>
-                            </g>
-                        </svg>
-                        <p><a href="#" target="_blank">armando.webs_pro</a></p>
-                    </li>
-
-                    <li>
-                        <svg class="icono" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                                viewBox="0 0 45.959 45.959" style="enable-background:new 0 0 45.959 45.959;" xml:space="preserve">
-                            <g>
-                                <g>
-                                    <path d="M5.392,0.492C2.268,0.492,0,2.647,0,5.614c0,2.966,2.223,5.119,5.284,5.119c1.588,0,2.956-0.515,3.957-1.489
-                                        c0.96-0.935,1.489-2.224,1.488-3.653C10.659,2.589,8.464,0.492,5.392,0.492z M7.847,7.811C7.227,8.414,6.34,8.733,5.284,8.733
-                                        C3.351,8.733,2,7.451,2,5.614c0-1.867,1.363-3.122,3.392-3.122c1.983,0,3.293,1.235,3.338,3.123
-                                        C8.729,6.477,8.416,7.256,7.847,7.811z"/>
-                                    <path d="M0.959,45.467h8.988V12.422H0.959V45.467z M2.959,14.422h4.988v29.044H2.959V14.422z"/>
-                                    <path d="M33.648,12.422c-4.168,0-6.72,1.439-8.198,2.792l-0.281-2.792H15v33.044h9.959V28.099c0-0.748,0.303-2.301,0.493-2.711
-                                        c1.203-2.591,2.826-2.591,5.284-2.591c2.831,0,5.223,2.655,5.223,5.797v16.874h10v-18.67
-                                        C45.959,16.92,39.577,12.422,33.648,12.422z M43.959,43.467h-6V28.593c0-4.227-3.308-7.797-7.223-7.797
-                                        c-2.512,0-5.358,0-7.099,3.75c-0.359,0.775-0.679,2.632-0.679,3.553v15.368H17V14.422h6.36l0.408,4.044h1.639l0.293-0.473
-                                        c0.667-1.074,2.776-3.572,7.948-3.572c4.966,0,10.311,3.872,10.311,12.374V43.467z"/>
-                                </g>
-                            </g>
-                        </svg>
-                        <p><a href="#" target="_blank">Armando.Cosas</a></p>
-                    </li>
-
-                    <li>
-                        <svg class="icono" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                                viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
-                            <g>
-                                <g>
-                                    <path d="M507.413,93.394c-3.709-2.51-8.607-2.383-12.174,0.327c-3.612,2.735-9.474,5.087-16.138,7.016
-                                        c18.245-21.301,18.623-35.541,18.408-38.893c-0.245-3.801-2.541-7.168-5.985-8.791c-3.459-1.612-7.51-1.23-10.587,1.005
-                                        c-21.893,15.908-43.689,19.373-56.791,19.76c-20.337-19.342-46.704-29.944-74.74-29.944c-60.271,0-109.307,49.684-109.307,110.751
-                                        c0,4.944,0.327,9.878,0.969,14.771C138.176,167.645,54.665,69.155,53.803,68.119c-2.184-2.617-5.5-4.041-8.929-3.714
-                                        c-3.398,0.296-6.444,2.235-8.148,5.189c-29.005,50.322-11.286,94.725,6.505,121.327c-1.837-1.092-3.342-2.097-4.372-2.857
-                                        c-3.143-2.337-7.337-2.725-10.852-0.995c-3.521,1.735-5.771,5.286-5.837,9.209c-0.786,48.255,21.764,76.49,43.674,92.49
-                                        c-2.372,0.327-4.597,1.459-6.266,3.276c-2.51,2.724-3.393,6.576-2.311,10.122c15.194,49.735,52.041,67.352,76.373,73.587
-                                        c-49.22,37.138-120.557,25.016-121.348,24.867c-4.73-0.831-9.464,1.663-11.408,6.082c-1.939,4.413-0.612,9.587,3.225,12.51
-                                        c52.464,40.041,115.21,48.913,160.53,48.913c34.272,0,58.573-5.077,60.91-5.582c228.617-54.179,235.864-263.063,235.394-298.66
-                                        c42.888-39.929,49.633-55.255,50.684-59.067C512.811,100.502,511.117,95.91,507.413,93.394z M443.283,151.752
-                                        c-2.33,2.143-3.56,5.235-3.346,8.398c0.036,0.561,3.536,57.179-21.694,120.266c-33.709,84.291-100.164,138.725-197.307,161.746
-                                        c-1.041,0.219-90.905,18.831-169.792-18.689c33.725-1.414,80.429-10.913,113.292-47.806c2.745-3.077,3.398-7.833,1.709-11.593
-                                        c-1.689-3.75-5.439-6.51-9.551-6.51c-0.02,0-0.041,0-0.071,0c-2.76,0-50.337-0.357-73.133-46.306
-                                        c9.219,0.398,20.24-0.145,29.122-4.237c4.092-1.888,6.51-6.1,6.005-10.574c-0.505-4.475-3.821-8.079-8.23-9.008
-                                        c-2.556-0.541-57.649-12.836-66.143-72.693c8.464,3.526,19.015,6.257,29.51,4.685c4.031-0.602,7.332-3.5,8.474-7.413
-                                        c1.138-3.908-0.107-8.13-3.184-10.809c-2.383-2.07-54.327-48.273-30.541-107.973c28.158,29.332,108.46,102.368,205.833,96.786
-                                        c3.107-0.179,5.975-1.74,7.82-4.25c1.843-2.51,2.471-5.709,1.71-8.728c-1.837-7.316-2.77-14.857-2.77-22.418
-                                        c0-49.546,39.658-89.853,88.409-89.853c23.842,0,46.203,9.515,62.97,26.796c1.923,1.985,4.556,3.122,7.322,3.174
-                                        c9.658,0.092,25.561-0.949,43.531-7.633c-5.359,6.275-12.852,13.622-23.332,21.852c-3.622,2.847-4.954,7.735-3.276,12.026
-                                        c1.684,4.301,6.056,7.02,10.566,6.607c2.112-0.168,12.352-1.071,24.352-3.505C464.662,131.4,455.494,140.523,443.283,151.752z"/>
-                                </g>
-                            </g>
-                        </svg>
-                        <p><a href="#" target="_blank">Armando.Paredes</a></p>
-                    </li>
                 </ul>
 
             </div>
