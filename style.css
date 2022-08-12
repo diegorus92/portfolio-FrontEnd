@@ -29,6 +29,11 @@ body{
     background-size: cover;
 }
 
+.banner i{
+    color: white;
+    margin: 15% 45%;
+}
+
 .grilla-principal{
     background-color:aquamarine;
 }
@@ -52,6 +57,7 @@ body{
     margin-top: 5%;
 }
 
+
 .encabezado{
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-weight: bold;
@@ -61,16 +67,28 @@ body{
     margin: 15% 0;
 }
 
+.encabezado i{
+    margin-left: 55%;
+}
+
 .lista-contacto li{
     display:flex;
     flex-direction: row;
     margin-bottom: 5%;
 }
 
+.lista-contacto i{
+    margin-left: 5%;
+}
+
 .icono{
     width:10%;
     height: 10%;
     margin-right: 5%;
+}
+
+.list-group label{
+    font-size:0.8rem;
 }
 
 .fila-datos-basicos h1{
