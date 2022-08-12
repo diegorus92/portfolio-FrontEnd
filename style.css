@@ -19,6 +19,9 @@ body{
     color:white;
 }
 
+.edit-redes{
+    color:rgb(37, 149, 224);
+}
 
 .banner{
     width: 100%;
@@ -64,12 +67,10 @@ body{
     border-bottom: 1px solid black;
     display:flex;
     align-content: flex-start;
+    justify-content: space-between;
     margin: 15% 0;
 }
 
-.encabezado i{
-    margin-left: 55%;
-}
 
 .lista-contacto li{
     display:flex;
@@ -93,6 +94,16 @@ body{
 
 .fila-datos-basicos h1{
     margin: 5% 0;
+}
+
+.titulo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.titulo i{
+    margin-left: 5%;
+    margin-right: -5%;
 }
 
 .separador-secciones{
