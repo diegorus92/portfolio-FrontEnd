@@ -1,0 +1,21 @@
+.banner{
+    width: 100%;
+    height: 25rem;
+    border: 5px solid rgb(211, 243, 253);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.banner fa-icon{
+    color: rgb(37, 149, 224);;
+    margin: 15% 45%;
+}
+
+.banner fa-icon:hover{
+    color:white;
+}
+
+.banner fa-icon{
+    display:flex;
+    justify-content:center;
+}

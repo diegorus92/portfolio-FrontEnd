@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { faCoffee, faSquarePen, faUser} from '@fortawesome/free-solid-svg-icons';
-import { faFacebook, faLinkedin, faSquareInstagram, faSquareTwitter } from '@fortawesome/free-brands-svg-icons';
+import { faSquarePen} from '@fortawesome/free-solid-svg-icons';
+import { SocialNetList } from 'src/assets/mocks-lists/MockSocialNets';
+import { ISocialNetwork } from '../../interfaces/social-network';
 
 @Component({
   selector: 'app-nav-bar',
@@ -10,16 +11,14 @@ import { faFacebook, faLinkedin, faSquareInstagram, faSquareTwitter } from '@for
 export class NavBarComponent implements OnInit {
 
   editIcon = faSquarePen;
-  faceIcon = faFacebook;
-  instaIcon = faSquareInstagram;
-  linkedinIncon = faLinkedin;
-  tweetIcon = faSquareTwitter;
-  userIcon = faUser;
   
 
   constructor() { }
 
+  socialNetList:ISocialNetwork[] = SocialNetList;
+
   ngOnInit(): void {
+    
   }
 
 }
