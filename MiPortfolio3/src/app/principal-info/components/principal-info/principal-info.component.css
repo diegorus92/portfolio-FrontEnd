@@ -1,0 +1,15 @@
+.grilla-principal{
+    background-color:aquamarine;
+}
+
+.mi-col{
+    border: 5px solid rgb(211, 243, 253);
+}
+
+.mi-col-izquierda{
+    background-color:rgb(111, 207, 236)
+}
+
+.mi-col-derecha{
+    background-color: white
+}

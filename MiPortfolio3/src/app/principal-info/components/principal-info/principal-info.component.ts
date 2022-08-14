@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { IProfilePicture } from 'src/app/interfaces/profile-picture';
+import { PrincipalInfoService } from 'src/app/services/principal-info.service';
 
 @Component({
   selector: 'app-principal-info',
@@ -7,7 +9,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PrincipalInfoComponent implements OnInit {
 
-  constructor() { }
+  constructor(private PrincipalInfoService: PrincipalInfoService) { }
+
+  profilePicture:IProfilePicture = this.PrincipalInfoService.ProfilePicture;
 
   ngOnInit(): void {
   }

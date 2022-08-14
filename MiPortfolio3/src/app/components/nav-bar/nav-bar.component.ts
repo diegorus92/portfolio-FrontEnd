@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { faSquarePen} from '@fortawesome/free-solid-svg-icons';
-import { SocialNetList } from 'src/assets/mocks-lists/MockSocialNets';
 import { ISocialNetwork } from '../../interfaces/social-network';
+import { SocialNetworkService } from 'src/app/services/social-network.service';
 
 @Component({
   selector: 'app-nav-bar',
@@ -13,9 +13,9 @@ export class NavBarComponent implements OnInit {
   editIcon = faSquarePen;
   
 
-  constructor() { }
+  constructor(private socialNetService: SocialNetworkService) { }
 
-  socialNetList:ISocialNetwork[] = SocialNetList;
+  socialNetList:ISocialNetwork[] = this.socialNetService.SocialNetList;
 
   ngOnInit(): void {
     
