@@ -2,3 +2,13 @@
 body{
     background-color: white;
 }
+
+.encabezado{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: bold;
+    border-bottom: 1px solid black;
+    display:flex;
+    align-content: flex-start;
+    justify-content: space-between;
+    margin: 15% 0;
+}

@@ -1,0 +1,16 @@
+.container{
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content:space-between;
+}
+
+.icono{
+    margin-right: 5%;
+}
+
+p{
+    margin-top:5%;
+    margin-right: 5%;
+}
+

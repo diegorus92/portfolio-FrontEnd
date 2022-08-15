@@ -1,0 +1,9 @@
+<h4 class="encabezado">
+    CONTACTO<fa-icon [icon]="addIcon"></fa-icon>
+  </h4>
+  
+  <ul type="none">
+    <li *ngFor="let item of contactItems">
+        <app-contact-item [contactItem]="item"></app-contact-item>
+    </li>
+  </ul>
