@@ -1,0 +1,8 @@
+.container{
+    display:inline-flex;
+    justify-content: space-between;
+}
+
+span{
+    font-size: 0.8rem;
+}

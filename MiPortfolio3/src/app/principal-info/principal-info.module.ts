@@ -5,6 +5,8 @@ import { PrincipalInfoComponent } from './components/principal-info/principal-in
 import { ProfileImageComponent } from './components/profile-image/profile-image.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { ContactItemComponent } from './components/contact-item/contact-item.component';
+import { SoftwaresComponent } from './components/softwares/softwares.component';
+import { SoftwareItemComponent } from './components/software-item/software-item.component';
 
 
 
@@ -13,7 +15,9 @@ import { ContactItemComponent } from './components/contact-item/contact-item.com
     PrincipalInfoComponent,
     ProfileImageComponent,
     ContactComponent,
-    ContactItemComponent
+    ContactItemComponent,
+    SoftwaresComponent,
+    SoftwareItemComponent
   ],
   imports: [
     CommonModule,
