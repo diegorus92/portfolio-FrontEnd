@@ -20,7 +20,9 @@ export class SoftwareItemComponent implements OnInit {
     value: "option5"
   }
 
+
   ngOnInit(): void {
   }
+
 
 }
