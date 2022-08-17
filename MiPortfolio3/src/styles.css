@@ -12,3 +12,13 @@ body{
     justify-content: space-between;
     margin: 15% 0;
 }
+
+.cargo{
+    color:darkgray;
+    font-weight: bold;
+}
+
+.item{
+    text-decoration: underline;
+    font-weight: bold;
+}

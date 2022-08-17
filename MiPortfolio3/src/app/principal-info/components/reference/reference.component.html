@@ -1,0 +1,20 @@
+<div class="container-sm text-start ">
+    <h4 class="encabezado">
+      REFERENCIA
+      <fa-icon [icon]="editIcon"></fa-icon>
+    </h4>
+    <h5>{{reference.name}} {{reference.surname}}</h5>
+    <h6 class="cargo">{{reference.position}}</h6>
+    <div class="container text-center">
+        <div class="row">
+          <div class="col-3 item">
+            <p>Teléfono:</p>
+            <p>E-mail:</p>
+          </div>
+          <div class="col-9">
+            <p>{{reference.phone}}</p>
+            <p>{{reference.email}}</p>
+          </div>
+        </div>
+      </div>
+</div>

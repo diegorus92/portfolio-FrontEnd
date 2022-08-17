@@ -8,6 +8,7 @@ import { ContactComponent } from './components/contact/contact.component';
 import { ContactItemComponent } from './components/contact-item/contact-item.component';
 import { SoftwaresComponent } from './components/softwares/softwares.component';
 import { SoftwareItemComponent } from './components/software-item/software-item.component';
+import { ReferenceComponent } from './components/reference/reference.component';
 
 
 
@@ -18,7 +19,8 @@ import { SoftwareItemComponent } from './components/software-item/software-item.
     ContactComponent,
     ContactItemComponent,
     SoftwaresComponent,
-    SoftwareItemComponent
+    SoftwareItemComponent,
+    ReferenceComponent
   ],
   imports: [
     CommonModule,
