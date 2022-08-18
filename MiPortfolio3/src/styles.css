@@ -22,3 +22,26 @@ body{
     text-decoration: underline;
     font-weight: bold;
 }
+
+.fila-datos-basicos h1{
+    margin: 5% 0;
+}
+
+.titulo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.titulo fa-icon{
+    margin-left: 5%;
+    margin-right: -5%;
+}
+
+.separador-secciones{
+    border-bottom: 1px solid gray;
+    margin-bottom: 10%;
+}
+
+.separador-secciones h5{
+    font-weight: bold;
+}

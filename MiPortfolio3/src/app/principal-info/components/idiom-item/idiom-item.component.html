@@ -1,0 +1,16 @@
+<div class="container text-start">
+    <div class="row">
+      <div class="col-4 item col-label">
+        <article>
+            <fa-icon [icon]="editIcon"></fa-icon>
+            <fa-icon [icon]="removeIcon"></fa-icon>
+        </article>
+        <article>
+          {{idiom.name}}
+        </article>
+      </div>
+      <div class="col-8">
+        <p><input type="range" class="form-range" min="0" max="5" [id]="idiom.name" [name]="idiom.name" [value]="idiom.value"></p>
+      </div>
+    </div>
+</div>

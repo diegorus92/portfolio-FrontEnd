@@ -1,0 +1,12 @@
+<div class="container-sm">
+    <h4 class="encabezado">
+      IDIOMAS
+      <fa-icon [icon]="addIcon"></fa-icon>
+    </h4>
+    <div class="container" *ngFor="let idiom of idioms">
+      <app-idiom-item [idiom]="idiom"></app-idiom-item>
+    </div>
+    
+</div>
+
+

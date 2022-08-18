@@ -1,0 +1,10 @@
+<div class="container-sm">
+    <h4 class="encabezado">
+      EXPERIENCIA PROFESIONAL
+      <fa-icon [icon]="addIcon"></fa-icon>
+    </h4>
+    <div class="container" *ngFor="let profession of professionalExpItems">
+      <app-professional-exp-item [professionalExp]="profession"></app-professional-exp-item>
+    </div>
+</div>
+
