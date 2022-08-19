@@ -46,7 +46,7 @@ import { AppRoutingModule } from '../app-routing-module/app-routing-module.ts.mo
     FormsModule,
     ReactiveFormsModule,
     FontAwesomeModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
   exports: [
     PrincipalInfoComponent

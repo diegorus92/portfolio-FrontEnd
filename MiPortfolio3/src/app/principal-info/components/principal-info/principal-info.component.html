@@ -4,8 +4,12 @@
         <!--Columna izquierda-->
         <div class="col-5 mi-col mi-col-izquierda">
             <app-profile-image [profilePicture]="profilePicture"></app-profile-image>
-
-            <a routerLink="/interests" aria-current="interests-page">Intereses</a>
+            <div class="container link">
+                <a routerLink="/interests" aria-current="interests-page">Intereses</a>
+                <a routerLink="/experience" aria-current="Professional-Experience-page">Experiencia profesional</a>
+                <a routerLink="/education" aria-current="Education-page">Educación</a>
+            </div>
+            
             
             <app-contact></app-contact>
             <app-softwares></app-softwares>
@@ -19,9 +23,9 @@
 
             <router-outlet></router-outlet>
             
-            <app-professional-exp></app-professional-exp>
+        <!--<app-professional-exp></app-professional-exp>
             <app-education></app-education>
-            <!--<app-interests></app-interests>-->
+            <app-interests></app-interests>-->
         </div>
     </div>
 </div>

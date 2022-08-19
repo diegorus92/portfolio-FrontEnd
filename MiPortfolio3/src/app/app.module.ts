@@ -9,6 +9,7 @@ import { SocialNetComponent } from './components/social-net/social-net.component
 import { BannerModule } from './banner/banner.module';
 import { PrincipalInfoModule } from './principal-info/principal-info.module';
 import { AppRoutingModule } from './app-routing-module/app-routing-module.ts.module';
+import { SkillsInfoModule } from './skills-info/skills-info.module';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { AppRoutingModule } from './app-routing-module/app-routing-module.ts.mod
     FontAwesomeModule,
     BannerModule,
     PrincipalInfoModule,
-    AppRoutingModule
+    AppRoutingModule,
+    SkillsInfoModule
   ],
   providers: [],
   bootstrap: [AppComponent]
