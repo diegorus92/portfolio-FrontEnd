@@ -1,0 +1,15 @@
+<div class="container text-start">
+
+    <div class="row separador-secciones">
+      <div class="col-4">
+        <p>{{education.startDateYear}} - {{education.endDateYear}}</p>
+        <p><i>({{education.city}}, {{education.country}})</i></p>
+      </div>
+      <div class="col-8">
+        <fa-icon [icon]="editIcon"></fa-icon>
+        <fa-icon [icon]="removeIcon"></fa-icon>
+        <h5>{{education.degree}}</h5>
+        <p class="cargo">{{education.institution}}</p>
+      </div>
+    </div>
+</div>

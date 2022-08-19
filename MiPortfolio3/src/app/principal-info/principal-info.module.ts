@@ -14,6 +14,11 @@ import { IdiomItemComponent } from './components/idiom-item/idiom-item.component
 import { UserComponent } from './components/user/user.component';
 import { ProfessionalExpComponent } from './components/professional-exp/professional-exp.component';
 import { ProfessionalExpItemComponent } from './components/professional-exp-item/professional-exp-item.component';
+import { EducationComponent } from './components/education/education.component';
+import { EducationItemComponent } from './components/education-item/education-item.component';
+import { InterestsComponent } from './components/interests/interests.component';
+import { InterestItemComponent } from './components/interest-item/interest-item.component';
+import { AppRoutingModule } from '../app-routing-module/app-routing-module.ts.module';
 
 
 
@@ -30,13 +35,18 @@ import { ProfessionalExpItemComponent } from './components/professional-exp-item
     IdiomItemComponent,
     UserComponent,
     ProfessionalExpComponent,
-    ProfessionalExpItemComponent
+    ProfessionalExpItemComponent,
+    EducationComponent,
+    EducationItemComponent,
+    InterestsComponent,
+    InterestItemComponent
   ],
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    AppRoutingModule
   ],
   exports: [
     PrincipalInfoComponent

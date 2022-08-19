@@ -1,0 +1,10 @@
+<div class="container-sm">
+    <h4 class="encabezado">
+      EDUCACIÓN
+      <fa-icon [icon]="addIcon"></fa-icon>
+    </h4>
+    <div class="container" *ngFor="let education of educationItems">
+        <app-education-item [education]="education"></app-education-item>
+    </div>
+    
+</div>

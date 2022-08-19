@@ -8,6 +8,7 @@ import { LoginComponent } from './components/login/login.component';
 import { SocialNetComponent } from './components/social-net/social-net.component';
 import { BannerModule } from './banner/banner.module';
 import { PrincipalInfoModule } from './principal-info/principal-info.module';
+import { AppRoutingModule } from './app-routing-module/app-routing-module.ts.module';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { PrincipalInfoModule } from './principal-info/principal-info.module';
     BrowserModule,
     FontAwesomeModule,
     BannerModule,
-    PrincipalInfoModule
+    PrincipalInfoModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

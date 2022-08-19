@@ -13,6 +13,10 @@ import { UserData } from '../interfaces/user';
 import { UserInfo } from 'src/assets/mocks-lists/MockUserData';
 import { IProfessionalExpItem } from '../interfaces/professional-exp-item';
 import { ProfessionalExpItems } from 'src/assets/mocks-lists/MockProfessionalItems';
+import { IEducation } from '../interfaces/education-item';
+import { EducationItems } from 'src/assets/mocks-lists/MockEducationItems';
+import { IInterest } from '../interfaces/interest-item';
+import { Interests } from 'src/assets/mocks-lists/MockInterests';
 
 @Injectable({
   providedIn: 'root'
@@ -28,6 +32,8 @@ export class PrincipalInfoService {
   private idioms:IIdiomItem[] = IdiomItems;
   private userInfo: UserData = UserInfo;
   private professionalExpItems: IProfessionalExpItem[] = ProfessionalExpItems;
+  private educationItems: IEducation[] = EducationItems;
+  private interests:IInterest[] = Interests;
 
   get ProfilePicture():IProfilePicture {
     return this.profilePicture;
@@ -55,5 +61,13 @@ export class PrincipalInfoService {
 
   get PorfessionalExpItems():IProfessionalExpItem[]{
     return this.professionalExpItems;
+  }
+
+  get EducationItems():IEducation[]{
+    return this.educationItems;
+  }
+
+  get Interests():IInterest[]{
+    return this.interests;
   }
 }

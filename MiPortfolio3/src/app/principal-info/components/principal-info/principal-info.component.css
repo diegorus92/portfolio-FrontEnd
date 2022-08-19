@@ -13,3 +13,13 @@
 .mi-col-derecha{
     background-color: white
 }
+
+a{
+    background-color:rgb(8, 8, 8);
+    border-radius: 8px;
+    font-size:1.5rem;
+    font-weight:bold;
+    text-decoration: none;
+    display:flex;
+    width:24%
+}
