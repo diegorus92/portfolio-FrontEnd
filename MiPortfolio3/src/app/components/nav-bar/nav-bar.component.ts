@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { faSquarePen} from '@fortawesome/free-solid-svg-icons';
+import { faPlus, faTrashCan, faSquarePen} from '@fortawesome/free-solid-svg-icons';
 import { ISocialNetwork } from '../../interfaces/social-network';
 import { SocialNetworkService } from 'src/app/services/social-network.service';
 
@@ -10,8 +10,11 @@ import { SocialNetworkService } from 'src/app/services/social-network.service';
 })
 export class NavBarComponent implements OnInit {
 
+  addIcon = faPlus;
   editIcon = faSquarePen;
-  
+  removeIcon = faTrashCan;
+
+  formActive:boolean = false;
 
   constructor(private socialNetService: SocialNetworkService) { }
 
@@ -19,6 +22,10 @@ export class NavBarComponent implements OnInit {
 
   ngOnInit(): void {
     
+  }
+
+  toogleForm():void{
+    this.formActive = !this.formActive;
   }
 
 }

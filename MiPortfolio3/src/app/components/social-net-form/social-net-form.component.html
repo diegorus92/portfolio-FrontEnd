@@ -1,0 +1,24 @@
+<div class="container text-center">
+    <h3>Nueva Red social</h3>
+    <form [formGroup]="socialNetForm" (ngSubmit)="onSend($event)">
+        <div class="row">
+        <div class="col">
+            <select class="form-select" formControlName="iconName" aria-label="Default select example">
+                <option value="facebook">Facebook</option>
+                <option value="linkedin">Linkedin</option>
+                <option value="instagram">Instagram</option>
+                <option value="twitter">Twitter</option>
+                <option value="youtube">You Tube</option>
+            </select>
+        </div>
+        <div class="col">
+            <input class="form-control" type="text" formControlName="link" placeholder="Pegue aquí el link de su red social" aria-label="default input example">
+        </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <button type="submit" class="btn btn-primary">Guardar</button>
+            </div>
+        </div>
+    </form>
+</div>

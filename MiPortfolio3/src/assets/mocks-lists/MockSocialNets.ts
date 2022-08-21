@@ -4,22 +4,22 @@ import { faFacebook, faLinkedin, faSquareInstagram, faSquareTwitter } from '@for
 export const SocialNetList:ISocialNetwork[] = [
     {
         id:1,
-        faIcon: faFacebook,
+        iconName: "facebook",
         link:"https://www.facebook.com"
     }, 
     {
         id:2,
-        faIcon: faLinkedin,
+        iconName: "linkedin",
         link:"https://www.linkedin.com"
     }, 
     {
         id:3,
-        faIcon: faSquareInstagram,
+        iconName: "instagram",
         link:"https://www.instagram.com"
     }, 
     {
         id:4,
-        faIcon: faSquareTwitter,
+        iconName: "twitter",
         link:"https://twitter.com"
     }
 ]

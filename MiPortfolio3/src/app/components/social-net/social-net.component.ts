@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ISocialNetwork } from 'src/app/interfaces/social-network';
-import { faFacebook, faLinkedin, faSquareInstagram, faSquareTwitter } from '@fortawesome/free-brands-svg-icons';
+import { faFacebook, faLinkedin, faSquareInstagram, faTwitter, IconDefinition } from '@fortawesome/free-brands-svg-icons';
+import { faF } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-social-net',
@@ -13,11 +14,13 @@ export class SocialNetComponent implements OnInit {
 
   @Input() socialNet: ISocialNetwork={
     id:1,
-    faIcon: faFacebook,
+    iconName: "facebook",
     link:"#"
+  };
+  
+  ngOnInit(): void {
+    
   }
 
-  ngOnInit(): void {
-  }
 
 }
