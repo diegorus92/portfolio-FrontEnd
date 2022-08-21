@@ -1,0 +1,15 @@
+<div class="container">
+    <div class="wrapper">
+    <img [src]="project.src" alt="Random first slide">
+  </div>
+  <div class="carousel-caption">
+    <h3>{{ project.title }}</h3>
+    <p>{{ project.short }}</p>
+    <a [href]= "project.link" target="_blank">Visitar</a>
+    <article>
+        <fa-icon [icon]="editIcon" class="fa-2x"></fa-icon>
+        <fa-icon [icon]="removeIcon" class="fa-2x"></fa-icon>
+    </article>
+    
+  </div>
+</div>

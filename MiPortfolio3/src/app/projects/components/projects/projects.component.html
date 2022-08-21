@@ -1,0 +1,11 @@
+<div class="row">
+    <div class="col">
+        <fa-icon [icon]="addIcon" class="fa-3x"></fa-icon>
+        <ngb-carousel>
+            <ng-template ngbSlide *ngFor="let project of projects">
+              <app-project-item [project]="project"></app-project-item>
+            </ng-template>
+        </ngb-carousel>
+    </div>
+</div>
+

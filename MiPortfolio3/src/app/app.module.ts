@@ -10,13 +10,15 @@ import { BannerModule } from './banner/banner.module';
 import { PrincipalInfoModule } from './principal-info/principal-info.module';
 import { AppRoutingModule } from './app-routing-module/app-routing-module.ts.module';
 import { SkillsInfoModule } from './skills-info/skills-info.module';
+import { ProjectsModule } from './projects/projects.module';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavBarComponent,
     LoginComponent,
-    SocialNetComponent
+    SocialNetComponent,
   ],
   imports: [
     BrowserModule,
@@ -24,7 +26,9 @@ import { SkillsInfoModule } from './skills-info/skills-info.module';
     BannerModule,
     PrincipalInfoModule,
     AppRoutingModule,
-    SkillsInfoModule
+    SkillsInfoModule,
+    ProjectsModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
