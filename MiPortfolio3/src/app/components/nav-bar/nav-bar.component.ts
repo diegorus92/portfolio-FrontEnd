@@ -24,6 +24,13 @@ export class NavBarComponent implements OnInit {
     
   }
 
+  addSocialNetwork(socialNet: ISocialNetwork): void {
+    this.socialNetService.addSocialNetwork(socialNet);
+    console.log("Agregado a lista del servicio");
+    this.socialNetList = this.socialNetService.SocialNetList;
+    console.log("Recargada lista de Redes actualizada desde el servicio");
+  }
+
   toogleForm():void{
     this.formActive = !this.formActive;
   }

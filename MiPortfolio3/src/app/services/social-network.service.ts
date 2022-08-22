@@ -52,5 +52,8 @@ export class SocialNetworkService {
     }
   }
 
+  addSocialNetwork(newSocialNet:ISocialNetwork):void{
+    this.socialNetList.push(newSocialNet);
+  }
 
 }
