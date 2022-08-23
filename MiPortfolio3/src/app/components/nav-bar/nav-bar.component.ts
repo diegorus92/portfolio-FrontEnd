@@ -38,8 +38,8 @@ export class NavBarComponent implements OnInit {
       para que al añadir nueva red no me siga modificando la red modificada anteriormente,
       o si quiero modificar una nueva red, no me modifique la anterior
     */
-    let empty!:ISocialNetwork;
-    this.socialNetToModify = empty;
+    let emptySocialNet!:ISocialNetwork;
+    this.socialNetToModify = emptySocialNet;
     ////////////////////////////////////
     
     console.log("[Nav-bar] socialNetToModify, ", this.socialNetToModify);
@@ -56,5 +56,14 @@ export class NavBarComponent implements OnInit {
     console.log("[Nav-bar]Red social a modificar traída desde hijo (Form):", socialNet);
     this.socialNetToModify = socialNet;
     this.formActive = !this.formActive;
+  }
+
+  /*Toma la red social a eliminar y la pasa al servicio para su eliminación,
+  luego recarga la lista de redes sociales mediante la lista del servicio*/
+  removeSocialNetIncoming(socialNet: ISocialNetwork):void{
+    console.log("[Nav-bar] ID de la SocialNet a eliminar recibido: ", socialNet.id);
+    this.socialNetService.removeSocialNetwork(socialNet);
+    this.socialNetList = this.socialNetService.SocialNetList;
+    console.log("[Nav-bar] Recargada lista de Redes actualizada desde el servicio ", this.socialNetList);
   }
 }

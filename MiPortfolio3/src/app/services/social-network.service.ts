@@ -64,6 +64,7 @@ export class SocialNetworkService {
     return this.SocialNetList.findIndex(item => item.id == socialNet.id);
   }
 
+
   addSocialNetwork(newSocialNet:ISocialNetwork):void{
     let socialNetIndex = this.findSocialNet(newSocialNet);
     if(socialNetIndex > -1){
@@ -79,4 +80,10 @@ export class SocialNetworkService {
     }
   }
 
+  /*Elimina de la lista una red social recibida por parámetro, mediante su ID */
+  removeSocialNetwork(socialNet:ISocialNetwork):void{
+    console.log("[servicio] id de la red social a eliminar: ", socialNet.id);
+    this.SocialNetList.splice(this.findSocialNet(socialNet), 1);
+    console.log("[servicio] Red social eliminada: ", socialNet);
+  }
 }

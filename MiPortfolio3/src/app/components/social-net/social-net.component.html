@@ -3,5 +3,5 @@
         <fa-icon *ngIf="socialNet.icon" [icon]="socialNet.icon" class="fa-2x"></fa-icon>
     </a>
     <fa-icon [icon]="editIcon" (click)="modifySocialNetwork(socialNet)"></fa-icon>
-    <fa-icon [icon]="removeIcon"></fa-icon>
+    <fa-icon [icon]="removeIcon" (click)="removeSocialNetwork()"></fa-icon>
 </div>

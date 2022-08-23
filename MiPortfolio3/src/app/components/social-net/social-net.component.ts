@@ -20,6 +20,7 @@ export class SocialNetComponent implements OnInit {
   removeIcon = faTrashCan;
 
   @Output() socialNetEvent = new EventEmitter<ISocialNetwork>();
+  @Output() idSocialNetEvent = new EventEmitter<ISocialNetwork>(); //Usado para emitir al padre (NavBarComponent), la Red Social a eliminar
   
   ngOnInit(): void {
     
@@ -29,6 +30,11 @@ export class SocialNetComponent implements OnInit {
   de la Red social al padre (NavBarComponent)*/
   modifySocialNetwork(socialNetwork: ISocialNetwork): void {
     this.socialNetEvent.emit(socialNetwork);
+  }
+
+  //Al presionar el iconno de faTrashCan se dispara este metodo que emite esta red social al padre
+  removeSocialNetwork(): void {
+    this.idSocialNetEvent.emit(this.socialNet);
   }
 
 }
