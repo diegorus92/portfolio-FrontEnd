@@ -20,12 +20,16 @@ export class SocialNetworkService {
     return this.socialNetList;
   };
 
+
+  //Recorre la lista de ISocialNetwork, y se le asigna a cada item su correspondiente IconDefinition
   private setIcon():void{
     for(let i = 0; i < this.socialNetList.length; i++) {
       this.findIcon(this.socialNetList[i]);
     }
   }
 
+  /*Recibe un ISocialNetwork y segun el nombre, le asigna el IconDefinition correspondiente
+  dentro de la lista de IconDefinition*/
   private findIcon(socialNetList:ISocialNetwork):void{ 
     switch(socialNetList.iconName){
       case "facebook":{
@@ -52,8 +56,27 @@ export class SocialNetworkService {
     }
   }
 
+  private setId():number{
+    return this.SocialNetList.length > 0 ? Math.max(...this.SocialNetList.map(item => item.id!)) + 1 : 1;
+  }
+
+  private findSocialNet(socialNet: ISocialNetwork):number{
+    return this.SocialNetList.findIndex(item => item.id == socialNet.id);
+  }
+
   addSocialNetwork(newSocialNet:ISocialNetwork):void{
-    this.socialNetList.push(newSocialNet);
+    let socialNetIndex = this.findSocialNet(newSocialNet);
+    if(socialNetIndex > -1){
+      this.socialNetList[socialNetIndex] = newSocialNet;
+      console.log("[servicio]: Modificando Red en indice ", socialNetIndex);
+      console.log("[servicio]:Red modificada con éxito ", this.socialNetList);
+    }
+    else{
+      newSocialNet.id = this.setId();
+      console.log("[servicio]: Añadiendo id a nueva Red", newSocialNet);
+      this.socialNetList.push(newSocialNet);
+      console.log("[servicio]:Red agregada con éxito ", this.socialNetList);
+    }
   }
 
 }

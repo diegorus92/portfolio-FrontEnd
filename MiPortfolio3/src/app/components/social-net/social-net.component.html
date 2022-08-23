@@ -1,3 +1,7 @@
-<a class="nav-link active" aria-current="page" [href]="socialNet.link" target="_blank">
-    <fa-icon *ngIf="socialNet.icon" [icon]="socialNet.icon" class="fa-2x"></fa-icon>
-</a>
+<div class="container">
+    <a class="nav-link active" aria-current="page" [href]="socialNet.link" target="_blank">
+        <fa-icon *ngIf="socialNet.icon" [icon]="socialNet.icon" class="fa-2x"></fa-icon>
+    </a>
+    <fa-icon [icon]="editIcon" (click)="modifySocialNetwork(socialNet)"></fa-icon>
+    <fa-icon [icon]="removeIcon"></fa-icon>
+</div>

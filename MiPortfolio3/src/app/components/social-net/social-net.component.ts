@@ -1,7 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { faSquarePen, faTrashCan } from '@fortawesome/free-solid-svg-icons';
 import { ISocialNetwork } from 'src/app/interfaces/social-network';
-import { faFacebook, faLinkedin, faSquareInstagram, faTwitter, IconDefinition } from '@fortawesome/free-brands-svg-icons';
-import { faF } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-social-net',
@@ -17,10 +16,19 @@ export class SocialNetComponent implements OnInit {
     iconName: "facebook",
     link:"#"
   };
+  editIcon = faSquarePen;
+  removeIcon = faTrashCan;
+
+  @Output() socialNetEvent = new EventEmitter<ISocialNetwork>();
   
   ngOnInit(): void {
     
   }
 
+  /*Al presionar el icono de editIcon de este componente, se envía mediante el evento la info
+  de la Red social al padre (NavBarComponent)*/
+  modifySocialNetwork(socialNetwork: ISocialNetwork): void {
+    this.socialNetEvent.emit(socialNetwork);
+  }
 
 }

@@ -1,9 +1,24 @@
 <div class="container text-center">
-    <h3>Nueva Red social</h3>
     <form [formGroup]="socialNetForm" (ngSubmit)="onSend($event)">
         <div class="row">
         <div class="col">
-            <select class="form-select" formControlName="iconName" aria-label="Default select example">
+            <select 
+                *ngIf="socialNetToModify"
+                class="form-select" 
+                formControlName="iconName" aria-label="Default select example" 
+                [ngModel]="socialNetToModify.iconName"
+            >
+                <option value="facebook">Facebook</option>
+                <option value="linkedin">Linkedin</option>
+                <option value="instagram">Instagram</option>
+                <option value="twitter">Twitter</option>
+                <option value="youtube">You Tube</option>
+            </select>
+            <select 
+                *ngIf="!socialNetToModify"
+                class="form-select" 
+                formControlName="iconName" aria-label="Default select example" 
+            >
                 <option value="facebook">Facebook</option>
                 <option value="linkedin">Linkedin</option>
                 <option value="instagram">Instagram</option>
@@ -13,7 +28,23 @@
             <p class = "error" *ngIf="IconName?.touched && IconName?.errors">Este campo no puede quedar vacío</p>
         </div>
         <div class="col">
-            <input class="form-control" type="text" formControlName="link" placeholder="Pegue aquí el link de su red social" aria-label="default input example">
+            <input 
+                *ngIf="socialNetToModify"
+                class="form-control" 
+                type="text" 
+                formControlName="link" 
+                placeholder="Pegue aquí el link de su red social" 
+                aria-label="default input example"
+                [ngModel] = "socialNetToModify.link"
+            >
+            <input 
+                *ngIf="!socialNetToModify"
+                class="form-control" 
+                type="text" 
+                formControlName="link" 
+                placeholder="Pegue aquí el link de su red social" 
+                aria-label="default input example"
+            >
             <p class = "error" *ngIf="Link?.touched && Link?.errors">Este campo no puede quedar vacío</p>
         </div>
         </div>
