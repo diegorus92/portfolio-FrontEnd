@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { faSquarePen} from '@fortawesome/free-solid-svg-icons';
+import { BannerService } from 'src/app/services/banner.service';
 
 @Component({
   selector: 'app-banner',
@@ -9,12 +10,29 @@ import { faSquarePen} from '@fortawesome/free-solid-svg-icons';
 export class BannerComponent implements OnInit {
 
   editIcon = faSquarePen;
+  editionActive: boolean = false;
 
-  constructor() { }
+  constructor(private bannerService: BannerService) { }
 
-  image:string = "url(../../../../assets/images/banner.jpg)";
+  image:string = this.bannerService.UrlImage;
+  input:string = "";
 
   ngOnInit(): void {
+  }
+
+  toggleEdition():void {
+    this.editionActive = !this.editionActive;
+  }
+
+  clearInput():void{
+    this.input = "";
+  }
+
+  saveImage(url:string):void {
+    console.log("[BannerComponent] url a guardar: ", url);
+    this.bannerService.saveImage(url);
+    this.image = this.bannerService.UrlImage;
+    this.clearInput();
   }
 
 }

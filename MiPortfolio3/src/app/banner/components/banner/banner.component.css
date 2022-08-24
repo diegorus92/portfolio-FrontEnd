@@ -3,12 +3,13 @@
     height: 25rem;
     border: 5px solid rgb(211, 243, 253);
     background-repeat: no-repeat;
-    background-size: cover;
+    background-position: center;
+    background-size: 100% 25rem;
 }
 
 .banner fa-icon{
     color: rgb(37, 149, 224);;
-    margin: 15% 45%;
+    margin: 5% 45%;
 }
 
 .banner fa-icon:hover{
@@ -18,4 +19,18 @@
 .banner fa-icon{
     display:flex;
     justify-content:center;
+}
+
+article{
+    display:flex;
+    flex-direction: column;
+}
+
+.banner input{
+    margin: 0% 25%;
+    width: 50%;
+}
+
+.banner button{
+    margin: 0% 25%;
 }

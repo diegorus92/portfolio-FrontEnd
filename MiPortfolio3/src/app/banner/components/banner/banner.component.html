@@ -1,3 +1,14 @@
 <div class="container-sm banner" [style.background-image]="image">
-    <fa-icon [icon]="editIcon" class="edit-redes fa-5x"></fa-icon>
+    <fa-icon [icon]="editIcon" class="edit-redes fa-5x" (click)="toggleEdition()"></fa-icon>
+    <article *ngIf="editionActive">
+        <input 
+            [(ngModel)] = "input"
+            class="form-control" 
+            type="text" 
+            placeholder="pegue aquí la URL de la imagen..." 
+            aria-label="default input example"
+        >
+        <button type="button" class="btn btn-primary" (click)="saveImage(input)">Guardar</button>
+    </article>
+    
 </div>
