@@ -70,4 +70,11 @@ export class PrincipalInfoService {
   get Interests():IInterest[]{
     return this.interests;
   }
+
+
+  saveProfilePicture(url:string):void{
+    this.ProfilePicture.imageSrc = url;
+    console.log("[PrincipalInfoService] url recibida del PrincipalInfoComponent y almacenada: ", url);
+  }
+
 }

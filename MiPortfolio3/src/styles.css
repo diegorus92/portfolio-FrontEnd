@@ -45,3 +45,8 @@ body{
 .separador-secciones h5{
     font-weight: bold;
 }
+
+
+.edit-icon:hover{
+    color:blue;
+}

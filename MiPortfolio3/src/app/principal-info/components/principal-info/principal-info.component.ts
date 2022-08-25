@@ -16,4 +16,11 @@ export class PrincipalInfoComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  saveProfilePicture(url: string){
+    this.PrincipalInfoService.saveProfilePicture(url);
+    console.log("[PrincipalInfoComponent] url recibida del hijo (ProfileImageComponent) y enviada al servicio: ", url);
+    this.profilePicture = this.PrincipalInfoService.ProfilePicture;
+    console.log("[PrincipalInfoComponent]Imagen de perfil actaulizada desde el servicio:", this.profilePicture);
+  }
+
 }

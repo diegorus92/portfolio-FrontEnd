@@ -1,4 +1,20 @@
 <div class="container-sm">
     <img src={{profilePicture.imageSrc}} class="img-thumbnail img-perfil" alt={{profilePicture.imageAlt}}>
-    <fa-icon [icon]="editIcon" class="fa-3x"></fa-icon>
+    <fa-icon [icon]="editIcon" class="fa-3x edit-icon" (click)="toggleEdition()"></fa-icon>
+    <article *ngIf="editionActive">
+        <input 
+            [(ngModel)]="input"
+            class="form-control" 
+            type="text" 
+            placeholder="pegue aquí la URL de la imagen..." 
+            aria-label="default input example"
+        >
+        <button 
+            type="button" 
+            class="btn btn-primary" 
+            (click)="submit(input)" 
+        >
+            Guardar
+        </button>
+    </article>
 </div>

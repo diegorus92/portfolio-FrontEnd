@@ -3,7 +3,11 @@
     <div class="row">
         <!--Columna izquierda-->
         <div class="col-5 mi-col mi-col-izquierda">
-            <app-profile-image [profilePicture]="profilePicture"></app-profile-image>
+            <app-profile-image 
+                [profilePicture]="profilePicture"
+                (urlImageEvent)="saveProfilePicture($event)"
+            ></app-profile-image>
+
             <div class="container link">
                 <a routerLink="/interests" aria-current="interests-page">Intereses</a>
                 <a routerLink="/experience" aria-current="Professional-Experience-page">Experiencia profesional</a>

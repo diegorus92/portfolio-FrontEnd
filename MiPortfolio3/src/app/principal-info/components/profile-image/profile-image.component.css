@@ -1,6 +1,10 @@
 .img-perfil{
-    width:50%;
-    height:50%;
+    width:15rem;
+    height:15rem;
     border-radius: 50%;
     margin-top: 5%;
+}
+
+.btn{
+    width: 100%;
 }
