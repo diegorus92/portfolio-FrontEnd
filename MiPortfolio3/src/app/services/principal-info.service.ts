@@ -17,6 +17,8 @@ import { IEducation } from '../interfaces/education-item';
 import { EducationItems } from 'src/assets/mocks-lists/MockEducationItems';
 import { IInterest } from '../interfaces/interest-item';
 import { Interests } from 'src/assets/mocks-lists/MockInterests';
+import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+import { faEnvelope, faMobileScreenButton, faPhone, faLocationDot } from '@fortawesome/free-solid-svg-icons';
 
 @Injectable({
   providedIn: 'root'
@@ -26,7 +28,10 @@ export class PrincipalInfoService {
   constructor() { }
 
   private profilePicture:IProfilePicture = ProfilePicture;
+  
   private contactItems:IContactItem[] = ContactItems;
+  private contactIcons: IconDefinition[] = [faEnvelope, faMobileScreenButton, faPhone, faLocationDot];
+
   private softwareItems:ISoftwareItem[] = SoftwareItems;
   private reference:IReference = ReferenceData;
   private idioms:IIdiomItem[] = IdiomItems;
@@ -40,6 +45,7 @@ export class PrincipalInfoService {
   }
 
   get ContactItems():IContactItem[] {
+    this.setContactIcon();
     return this.contactItems;
   }
 
@@ -75,6 +81,62 @@ export class PrincipalInfoService {
   saveProfilePicture(url:string):void{
     this.ProfilePicture.imageSrc = url;
     console.log("[PrincipalInfoService] url recibida del PrincipalInfoComponent y almacenada: ", url);
+  }
+
+
+  private setContactIcon():void{
+    for(let i = 0; i < this.contactItems.length; i++) {
+      this.findIcon(this.contactItems[i]);
+    }
+  }
+
+  private findIcon(contactItem:IContactItem):void{
+    switch(contactItem.iconName){
+      case "envelope":{
+        contactItem.icon = this.contactIcons[0];
+        break;
+      }
+      case "mobile":{
+        contactItem.icon = this.contactIcons[1];
+        break;
+      }
+      case "phone":{
+        contactItem.icon = this.contactIcons[2];
+        break;
+      }
+      case "location":{
+        contactItem.icon = this.contactIcons[3];
+        break;
+      }
+      default: break;
+    }
+  }
+
+  private setContactId():number{
+    return this.contactItems.length > 0 ? Math.max(...this.contactItems.map(contact => contact.id!)) + 1 : 1;
+  }
+
+  private findContact(contact:IContactItem):number{
+    return this.contactItems.findIndex(item => item.id==contact.id);
+  }
+
+  saveContact(contact:IContactItem):void{
+    let contactIndex = this.findContact(contact);
+    if(contactIndex > -1){
+      this.contactItems[contactIndex] = contact;
+      console.log("[PrincipalInfoService] contacto modificado en índice: ", contactIndex);
+    }
+    else{
+      contact.id = this.setContactId();
+      this.contactItems.push(contact);
+      console.log("[PrincipalInfoService] nuevo contacto almacenado: ", contact);
+    }
+  }
+
+  removeContact(contact:IContactItem):void{
+    console.log("[PrincipalInfoService] id del contacto a eliminar: ", contact.id);
+    this.contactItems.splice(this.findContact(contact), 1);
+    console.log("[PrincipalInfoService] Contacto eliminado: ", contact);
   }
 
 }

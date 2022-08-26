@@ -46,7 +46,14 @@ body{
     font-weight: bold;
 }
 
+.add-icon:hover{
+    color:green;    
+}
 
 .edit-icon:hover{
     color:blue;
+}
+
+.remove-icon:hover{
+    color: red;
 }

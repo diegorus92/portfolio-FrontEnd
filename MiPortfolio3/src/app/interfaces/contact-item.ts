@@ -2,6 +2,7 @@ import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 
 export interface IContactItem{
     id?:number,
-    faIcon: IconDefinition,
+    iconName: string,
+    icon?: IconDefinition,
     data: string
 }

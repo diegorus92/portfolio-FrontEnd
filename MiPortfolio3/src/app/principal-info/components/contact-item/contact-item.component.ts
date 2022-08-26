@@ -1,6 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { IContactItem } from 'src/app/interfaces/contact-item';
-import { faEnvelope, faPenToSquare, faTrashCan } from '@fortawesome/free-solid-svg-icons';
+import { faPenToSquare, faTrashCan } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-contact-item',
@@ -12,9 +12,12 @@ export class ContactItemComponent implements OnInit {
   constructor() { }
 
   @Input()contactItem: IContactItem = {
-    faIcon: faEnvelope,
+    iconName: "envelope",
     data: "miCorreoFalso@hotmail.com"
   }
+ editionActive:boolean = false;
+ @Output() editionContactEvent = new EventEmitter<IContactItem>();
+ @Output() removeContactEvent = new EventEmitter<IContactItem>();
 
   faEdit = faPenToSquare;
   faRemove = faTrashCan;
@@ -22,4 +25,11 @@ export class ContactItemComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  toggleEdition():void{
+    this.editionContactEvent.emit(this.contactItem);
+  }
+
+  removeContact():void{
+    this.removeContactEvent.emit(this.contactItem);
+  }
 }

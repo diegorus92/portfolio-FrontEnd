@@ -1,10 +1,9 @@
 <div class="container">
-    <fa-icon class="icono fa-2x" [icon]="contactItem.faIcon"></fa-icon>
+    <fa-icon class="icono fa-2x" [icon]="contactItem.icon!"></fa-icon>
     <p>{{contactItem.data}}</p>
     <section>
-        <fa-icon [icon]="faEdit"></fa-icon>
-        <fa-icon [icon]="faRemove"></fa-icon>
+        <fa-icon class="edit-icon" [icon]="faEdit" (click)="toggleEdition()"></fa-icon>
+        <fa-icon class="remove-icon" [icon]="faRemove" (click)="removeContact()"></fa-icon>
     </section>
-    
 </div>
 

@@ -3,19 +3,23 @@ import { faEnvelope, faMobileScreenButton, faPhone, faLocationDot } from '@forta
 
 export const ContactItems: IContactItem[] =[
     {
-        faIcon: faEnvelope,
+        id: 1,
+        iconName: "envelope",
         data: "mi_email@yahoo.com.ar"
     },
     {
-        faIcon: faMobileScreenButton,
+        id: 2,
+        iconName: "mobile",
         data: "3794256899"
     },
     {
-        faIcon: faPhone,
+        id: 3,
+        iconName: "phone",
         data: "3794221145"
     },
     {
-        faIcon: faLocationDot,
+        id: 4,
+        iconName: "location",
         data: "Buenos Aires, Argentina"
     }
 ]

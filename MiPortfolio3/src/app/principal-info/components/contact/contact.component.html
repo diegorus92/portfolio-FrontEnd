@@ -1,9 +1,32 @@
 <h4 class="encabezado">
-    CONTACTO<fa-icon [icon]="addIcon"></fa-icon>
+    CONTACTO<fa-icon class="add-icon" [icon]="addIcon" (click)="toggleAddContact()"></fa-icon>
   </h4>
-  
+
+  <div class="container-sm form" *ngIf="formActivated">
+    <form [formGroup]="contactForm" (ngSubmit)="onSend($event)">
+
+      <select class="form-select" formControlName="iconName" [(ngModel)]="iconNameToModify" aria-label="Default select example">
+        <option value="envelope">e-Mail</option>
+        <option value="mobile">Celular</option>
+        <option value="phone">Teléfono</option>
+        <option value="location">Ubicación</option>
+      </select>
+      <p class = "error" *ngIf="IconName?.touched && IconName?.errors">Debe elegir una opción</p>
+
+      <input class="form-control" formControlName="data" [(ngModel)]="dataToModify" type="text" placeholder="Ingrese el dato de contacto" aria-label="default input example">
+      <p class = "error" *ngIf="Data?.touched && Data?.errors">Este campo no puede quedar vacío</p>
+
+      <button type="submit" class="btn btn-primary">Guardar</button>
+
+    </form>
+  </div>
+
   <ul type="none">
     <li *ngFor="let item of contactItems">
-        <app-contact-item [contactItem]="item"></app-contact-item>
+        <app-contact-item 
+          [contactItem]="item" 
+          (editionContactEvent)="modifyContact($event)"
+          (removeContactEvent)="removeContact($event)"
+        ></app-contact-item>
     </li>
   </ul>
