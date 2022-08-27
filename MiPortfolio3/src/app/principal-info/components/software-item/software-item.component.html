@@ -5,6 +5,8 @@
             <input class="form-check-input" type="radio"
              [name]="softwareItem.name" [id]="softwareItem.name+1" 
              value="option1" [(ngModel)]= "softwareItem.value"
+             #radio1
+             (click)="radioChange(radio1.value)"
             >
             <label [for]="softwareItem.name+1" class="form-check-label">1</label>
         </div>
@@ -12,6 +14,8 @@
             <input class="form-check-input" type="radio"
              [name]="softwareItem.name" [id]="softwareItem.name+2"
              value="option2"  [(ngModel)]= "softwareItem.value"
+             #radio2
+             (click)="radioChange(radio2.value)"
             >
             <label [for]="softwareItem.name+2" class="form-check-label">2</label>
         </div>
@@ -19,6 +23,8 @@
             <input class="form-check-input" type="radio"
              [name]="softwareItem.name" [id]="softwareItem.name+3"
              value="option3" [(ngModel)]= "softwareItem.value"
+             #radio3
+             (click)="radioChange(radio3.value)"
             >
             <label [for]="softwareItem.name+3" class="form-check-label">3</label>
         </div>
@@ -26,6 +32,8 @@
             <input class="form-check-input" type="radio"
              [name]="softwareItem.name" [id]="softwareItem.name+4"
              value="option4" [(ngModel)]= "softwareItem.value"
+             #radio4
+             (click)="radioChange(radio4.value)"
             >
             <label [for]="softwareItem.name+4" class="form-check-label">4</label>
         </div>
@@ -33,12 +41,13 @@
             <input class="form-check-input" type="radio"
              [name]="softwareItem.name" [id]="softwareItem.name+5"
              value="option5" [(ngModel)]= "softwareItem.value"
+             #radio5
+             (click)="radioChange(radio5.value)"
             >
             <label [for]="softwareItem.name+5" class="form-check-label">5</label>
         </div>
     </article>
     <article>
-        <fa-icon [icon]="editIcon"></fa-icon>
-        <fa-icon [icon]="removeIcon"></fa-icon>
+        <fa-icon [icon]="removeIcon" class="remove-icon" (click)="removeSoftware()"></fa-icon>
     </article> 
 </div>

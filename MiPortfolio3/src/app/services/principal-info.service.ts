@@ -33,12 +33,15 @@ export class PrincipalInfoService {
   private contactIcons: IconDefinition[] = [faEnvelope, faMobileScreenButton, faPhone, faLocationDot];
 
   private softwareItems:ISoftwareItem[] = SoftwareItems;
+  private defaultSoftwareOption:string = "option1";
+
   private reference:IReference = ReferenceData;
   private idioms:IIdiomItem[] = IdiomItems;
   private userInfo: UserData = UserInfo;
   private professionalExpItems: IProfessionalExpItem[] = ProfessionalExpItems;
   private educationItems: IEducation[] = EducationItems;
   private interests:IInterest[] = Interests;
+  
 
   get ProfilePicture():IProfilePicture {
     return this.profilePicture;
@@ -78,12 +81,14 @@ export class PrincipalInfoService {
   }
 
 
+  /////////////////PROFILE PICTURE///////////////
   saveProfilePicture(url:string):void{
     this.ProfilePicture.imageSrc = url;
     console.log("[PrincipalInfoService] url recibida del PrincipalInfoComponent y almacenada: ", url);
   }
+  /////////////////////////////////////////////
 
-
+  ////////CONTACTS//////////////////////////
   private setContactIcon():void{
     for(let i = 0; i < this.contactItems.length; i++) {
       this.findIcon(this.contactItems[i]);
@@ -138,5 +143,35 @@ export class PrincipalInfoService {
     this.contactItems.splice(this.findContact(contact), 1);
     console.log("[PrincipalInfoService] Contacto eliminado: ", contact);
   }
+  ///////////////////////////////////////
 
+  ///////////SOFTWARES////////////////////////
+  private setSoftwareId():number{
+    return this.softwareItems.length > 0 ? Math.max(...this.softwareItems.map(soft => soft.id!)) + 1 : 1;
+  }
+
+  private findSoftware(software:ISoftwareItem):number{
+    return this.softwareItems.findIndex(item => item.id==software.id);
+  }
+
+  saveSoftware(software:ISoftwareItem):void{
+    software.id = this.setSoftwareId();
+    software.value = this.defaultSoftwareOption;
+
+    console.log("[PrincipalInfoService] Nuevo software preparado y listo para  a guardar: ", software);
+    this.SoftwareItems.push(software);
+    console.log("[PrincipalInfoService] Nuevo software guardado en servicio");
+  }
+
+  modifySoftware(software:ISoftwareItem):void{
+    console.log("[PrincipalInfoService] Recibido de SoftwaresCompoent soft modificado a guardar: ", software);
+    let softwareIndex = this.findSoftware(software);
+    this.softwareItems[softwareIndex] = software;
+  }
+
+  removeSoftware(software:ISoftwareItem):void{
+    this.softwareItems.splice(this.findSoftware(software), 1);
+    console.log("[PrincipalInfoService] software eliminado de lista, ", this.softwareItems);
+  }
+  ////////////////////////////////////////
 }

@@ -17,17 +17,17 @@ export const SoftwareItems: ISoftwareItem[] = [
         value: "option3"
     },
     {
-        id: 5,
+        id: 4,
         name: "Photoshop",
         value: "option2"
     },
     {
-        id: 6,
+        id: 5,
         name: "Visual S. Code",
         value: "option1"
     },
     {
-        id: 7,
+        id: 6,
         name: "Blender",
         value: "option2"
     },
