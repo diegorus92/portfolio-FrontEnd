@@ -1,10 +1,60 @@
 <div class="container-sm">
     <h4 class="encabezado">
       IDIOMAS
-      <fa-icon [icon]="addIcon"></fa-icon>
+      <fa-icon [icon]="addIcon" class="add-icon" (click)="toggleForm()"></fa-icon>
     </h4>
+
+    <form [formGroup]="idiomForm" *ngIf="formActivated" (ngSubmit)="onSend($event)">
+
+      <div class="conainer-sm">
+
+        <div class="row align-items-center">
+          <div class="col-3">
+            <label for="idiom-selector">Idioma</label>
+          </div>
+          <div class="col-9">
+            <select formControlName="name" class="form-select" aria-label="Default select example" id="idiom-selector">
+              <option value="Español">Español</option>
+              <option value="Inglés">Inglés</option>
+              <option value="Japonés">Japonés</option>
+              <option value="Chino">Chino</option>
+              <option value="Ruso">Ruso</option>
+              <option value="Alemán">Alemán</option>
+            </select>
+            <p *ngIf="Name?.touched && Name?.errors" class="error">Debe seleccionar un idioma</p>
+          </div>
+        </div>
+
+        <div class="row align-items-center">
+          <div class="col-3">
+            <label for="value-selector">Valor</label>
+          </div>
+          <div class="col-9">
+            <select formControlName="value" class="form-select" aria-label="Default select example" id="value-selector">
+              <option value="0">0</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
+            <p *ngIf="Value?.touched && Value?.errors" class="error">Debe seleccionar un valor</p>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Guardar</button>
+
+      </div>
+      
+
+    </form>
+
     <div class="container" *ngFor="let idiom of idioms">
-      <app-idiom-item [idiom]="idiom"></app-idiom-item>
+      <app-idiom-item 
+        [idiom]="idiom" 
+        (idiomChangedEvent)="modifiedIdiomRecived($event)"
+        (idiomToRemoveEvent)="removeIdiomRecived($event)"  
+      ></app-idiom-item>
     </div>
     
 </div>

@@ -20,6 +20,8 @@ import { Interests } from 'src/assets/mocks-lists/MockInterests';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import { faEnvelope, faMobileScreenButton, faPhone, faLocationDot } from '@fortawesome/free-solid-svg-icons';
 
+const referenceId:number = 1;
+
 @Injectable({
   providedIn: 'root'
 })
@@ -174,4 +176,57 @@ export class PrincipalInfoService {
     console.log("[PrincipalInfoService] software eliminado de lista, ", this.softwareItems);
   }
   ////////////////////////////////////////
+
+  /////////////REFERENCE//////////////////
+  private setReferenceId():number{
+    return referenceId;
+  }
+
+  modifyReference(reference:IReference):void{
+    console.log("[PrincipalInfoService] Referencia a modificar recibida de ReferenceComponent: ", reference);
+    
+    reference.id! = this.setReferenceId();
+    console.log("[PrincipalInfoService]Agregado de id: ", reference);
+
+    this.reference = reference;
+    console.log("[PrincipalInfoService] Modificada referencia con éxito: ", this.reference);
+  }
+  ///////////////////////////////////////
+
+  //////////////IDIOMS/////////////////////
+  private setIdiomId():number{
+    return this.Idioms.length > 0 ? Math.max(...this.Idioms.map(idiom => idiom.id!)) + 1 : 1;
+  }
+
+  saveIdiom(idiom:IIdiomItem):void{
+    console.log("[principalInfoService] Nuevo idioma recibido de IdiomsComponent: ", idiom);
+
+    idiom.id! = this.setIdiomId();
+    console.log("[principalInfoService] Agregado id nuevo idioma: ", idiom);
+
+    this.Idioms.push(idiom);
+    console.log("[principalInfoService]Nuevo idioma almacenado con éxito: ", this.idioms);
+  }
+
+  private findIdiom(idiom:IIdiomItem):number{
+    return this.idioms.findIndex(item => item.id === idiom.id);
+  }
+
+  modifyIdiom(idiom:IIdiomItem):void{
+    let index = this.findIdiom(idiom);
+    if(index > -1){
+      this.idioms[index].value =  idiom.value.toString();
+      console.log("[principalInfoService]Cambiado valor del idiom en indice: ", index);
+      console.log("[principalInfoService]: ", this.idioms);
+    }
+    else{
+      console.log("[principalInfoService] No se encuentra el índice del idioma! ", idiom);
+    }
+  }
+
+  removeIdiom(idiom:IIdiomItem):void{
+    this.idioms.splice(this.findIdiom(idiom), 1);
+    console.log("[principalInfoService]: Idioma removido con éxito: ", this.idioms);
+  }
+  //////////////////////////////////////
 }

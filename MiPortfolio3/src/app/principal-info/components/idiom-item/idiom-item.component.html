@@ -2,15 +2,26 @@
     <div class="row">
       <div class="col-4 item col-label">
         <article>
-            <fa-icon [icon]="editIcon"></fa-icon>
-            <fa-icon [icon]="removeIcon"></fa-icon>
+            <fa-icon [icon]="removeIcon" class="remove-icon" (click)="removeIdiom(this.idiom)"></fa-icon>
         </article>
         <article>
           {{idiom.name}}
         </article>
       </div>
       <div class="col-8">
-        <p><input type="range" class="form-range" min="0" max="5" [id]="idiom.name" [name]="idiom.name" [value]="idiom.value"></p>
+        <p>
+          <input 
+            type="range" 
+            class="form-range" 
+            min="0" 
+            max="5" 
+            [id]="idiom.name" 
+            [name]="idiom.name" 
+            [value]="idiom.value"
+            [(ngModel)] = "idiom.value"
+            (change)="rangeChanged()"
+          >
+        </p>
       </div>
     </div>
 </div>

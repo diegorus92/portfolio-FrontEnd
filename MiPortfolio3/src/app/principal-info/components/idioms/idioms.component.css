@@ -1,0 +1,13 @@
+label{
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.btn{
+    margin-left: 25%;
+    width: 74%;
+}
+
+.error{
+    color:red;
+}
