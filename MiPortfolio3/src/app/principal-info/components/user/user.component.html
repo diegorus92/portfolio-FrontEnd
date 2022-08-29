@@ -1,10 +1,30 @@
 <div class="container-sm fila-datos-basicos">
     <section class="titulo">
       <h1>{{userData.name}} {{userData.surname}}</h1>
-      <fa-icon class="fa-2x" [icon]="editIcon"></fa-icon>
+      <fa-icon class="fa-2x edit-icon" [icon]="editIcon" (click)="toggleEdition()"></fa-icon>
     </section>
       <h3>{{userData.position}}</h3>
       <p>
           {{userData.description}}
       </p>
-  </div>
+
+      <div class="container-sm" *ngIf="editionForm">
+        <form [formGroup]="userForm" (ngSubmit)="onSend($event)">
+          <input class="form-control form-control-sm" formControlName="name" [ngModel]="userData.name" type="text" placeholder="Nombre" aria-label=".form-control-sm example">
+          <p class="error" *ngIf="Name?.touched && Name?.errors">Este campo no puede quedar vacío</p>
+          
+          <input class="form-control form-control-sm" formControlName="surname" [ngModel]="userData.surname" type="text" placeholder="Apellido" aria-label=".form-control-sm example">
+          <p class="error" *ngIf="Surname?.touched && Surname?.errors">Este campo no puede quedar vacío</p>
+
+          <input class="form-control form-control-sm" formControlName="position" [ngModel]="userData.position" type="text" placeholder="Posición/Cargo ocupado" aria-label=".form-control-sm example">
+          <p class="error" *ngIf="Position?.touched && Position?.errors">Este campo no puede quedar vacío</p>
+
+          <label for="text-area" class="item">Breve descripción:</label>
+          <textarea class="form-control" formControlName="description" [ngModel]="userData.description" id="text-area" rows="3"></textarea>
+          <p class="error" *ngIf="Description?.touched && Description?.errors?.['maxlength']">Este campo supera el máximo de caracteres permitidos ({{maxCharacters}})</p>
+
+          <button type="submit" class="btn btn-primary">Guardar</button>
+        </form>
+      </div>
+      
+</div>

@@ -229,4 +229,14 @@ export class PrincipalInfoService {
     console.log("[principalInfoService]: Idioma removido con éxito: ", this.idioms);
   }
   //////////////////////////////////////
+
+  //////////////////////USER/////////////////////
+  modifyUserData(user:UserData):void{
+    console.log("[principalInfoService] Dato de usuario recibido del UserComponent: ", user);
+    user.id = this.userInfo.id; //Le copio el id del dato viejo al nuevo, dado que el id siempre será uno
+    console.log("[principalInfoService] Agregado ID al Dato de usuario recibido: ", user);
+    this.userInfo = user;
+    console.log("[principalInfoService] Dato de usuario modificado: ", this.userInfo);
+  }
+  //////////////////////////////////////////////
 }
