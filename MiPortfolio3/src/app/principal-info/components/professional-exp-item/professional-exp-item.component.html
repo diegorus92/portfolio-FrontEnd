@@ -2,13 +2,13 @@
 
     <div class="row separador-secciones">
       <div class="col-4">
-        <p>{{professionalExp.startDateDay}}/{{professionalExp.startDateMonth}}/{{professionalExp.startDateYear}}</p>
-        <p>{{professionalExp.endDateDay}}/{{professionalExp.endDateMonth}}/{{professionalExp.endDateYear}}</p>
+        <p><b>Desde:</b>{{professionalExp.startDate}}</p>
+        <p><b>Hasta:</b>{{professionalExp.endDate}}</p>
         <p><i>({{professionalExp.city}}, {{professionalExp.country}})</i></p>
       </div>
       <div class="col-8">
-        <fa-icon [icon]="editIcon"></fa-icon>
-        <fa-icon [icon]="removeIcon"></fa-icon>
+        <fa-icon [icon]="editIcon" class="edit-icon"></fa-icon>
+        <fa-icon [icon]="removeIcon" class="remove-icon"></fa-icon>
         <h5>{{professionalExp.enterpriseName}}</h5>
         <h6 class="cargo">{{professionalExp.position}}</h6>
         <p class="item">Descripción del trabajo desempeñado:</p>

@@ -239,4 +239,16 @@ export class PrincipalInfoService {
     console.log("[principalInfoService] Dato de usuario modificado: ", this.userInfo);
   }
   //////////////////////////////////////////////
+
+  /////////////EXPERIENCIA PROFESIONAL//////////////
+  private setExperienceId():number{
+    return this.professionalExpItems.length > 0 ? Math.max(...this.professionalExpItems.map(item => item.id!)) + 1 : 1;
+  }
+
+  saveExperience(experience:IProfessionalExpItem):void{
+    experience.id = this.setExperienceId();
+    this.professionalExpItems.push(experience);
+    console.log("[PrincipalInfoService] agregado ID a nueva experiencia e ingresado a la lista", this.professionalExpItems);
+  }
+  ///////////////////////////////////////////////////
 }
