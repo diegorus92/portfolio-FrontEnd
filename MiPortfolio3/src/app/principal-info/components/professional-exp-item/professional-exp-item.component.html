@@ -7,8 +7,8 @@
         <p><i>({{professionalExp.city}}, {{professionalExp.country}})</i></p>
       </div>
       <div class="col-8">
-        <fa-icon [icon]="editIcon" class="edit-icon"></fa-icon>
-        <fa-icon [icon]="removeIcon" class="remove-icon"></fa-icon>
+        <fa-icon [icon]="editIcon" class="edit-icon" (click)="professionalItemEmit(professionalExp)"></fa-icon>
+        <fa-icon [icon]="removeIcon" class="remove-icon" (click)="professionalItemToDeleteEmit(professionalExp)"></fa-icon>
         <h5>{{professionalExp.enterpriseName}}</h5>
         <h6 class="cargo">{{professionalExp.position}}</h6>
         <p class="item">Descripción del trabajo desempeñado:</p>

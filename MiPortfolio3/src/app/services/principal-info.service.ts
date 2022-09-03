@@ -245,10 +245,37 @@ export class PrincipalInfoService {
     return this.professionalExpItems.length > 0 ? Math.max(...this.professionalExpItems.map(item => item.id!)) + 1 : 1;
   }
 
+  private findProfessionalItem(professionalItem:IProfessionalExpItem):number{
+    return this.professionalExpItems.findIndex(item => item.id==professionalItem.id);
+  }
+
   saveExperience(experience:IProfessionalExpItem):void{
-    experience.id = this.setExperienceId();
-    this.professionalExpItems.push(experience);
-    console.log("[PrincipalInfoService] agregado ID a nueva experiencia e ingresado a la lista", this.professionalExpItems);
+    if(experience.id! > -1){
+      console.log("[principalInfoService] El item ya existe, se modificará", experience);
+      this.modifyProfessionalExpItem(experience);
+      console.log("[principalInfoService] Item modificado en lista", this.professionalExpItems);
+    }
+    else{
+      console.log("[principalInfoService]El item no existe, se agregará ID y sumará a lista como nuevo: ", experience);
+      experience.id = this.setExperienceId();
+      this.professionalExpItems.push(experience);
+      console.log("[PrincipalInfoService] agregado ID a nueva experiencia e ingresado a la lista", this.professionalExpItems);
+    }
+    
+  }
+
+  modifyProfessionalExpItem(professionalExp:IProfessionalExpItem):void{
+    let index = this.findProfessionalItem(professionalExp);
+    if(index > -1){
+      this.professionalExpItems[index] = professionalExp;
+      console.log("[PrincipalInfoService] modificada experiencia profesional,", this.professionalExpItems);
+    }
+  }
+
+  deleteProfessionalExp(professionalExp:IProfessionalExpItem):void{
+    this.professionalExpItems.splice(this.findProfessionalItem(professionalExp), 1);
+    console.log("[PrincipalInfoService] Eliminado:", professionalExp);
+    console.log("[PrincipalInfoService] Lista luego de la eliminación", this.professionalExpItems);
   }
   ///////////////////////////////////////////////////
 }

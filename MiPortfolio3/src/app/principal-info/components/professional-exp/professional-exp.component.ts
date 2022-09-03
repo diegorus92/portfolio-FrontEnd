@@ -27,6 +27,17 @@ export class ProfessionalExpComponent implements OnInit {
     description: [''],
   })
 
+  professionalExpItemRecived: IProfessionalExpItem ={
+    id: -1,
+    startDate: '',
+    endDate: '',
+    city: '',
+    country: '',
+    enterpriseName: '',
+    position: '',
+    description: '',
+  }
+
   ngOnInit(): void {
   }
 
@@ -66,11 +77,25 @@ export class ProfessionalExpComponent implements OnInit {
     event.preventDefault();
 
     if(this.experienceForm.valid){
-      console.log("[ProfessionalExpComponent] Recibido del formulario: ", this.experienceForm.value);
-      this.principalInfoService.saveExperience(this.experienceForm.value as IProfessionalExpItem);
-      this.professionalExpItems = this.principalInfoService.PorfessionalExpItems;
-      console.log("[ProfessionalExpComponent] Actaulizada lista ", this.professionalExpItems);
-      this.experienceForm.reset();
+      if(this.professionalExpItemRecived.id! > -1){
+        this.experienceForm.value.id  = this.professionalExpItemRecived.id;
+        console.log("[ProfessionalExpComponent] Dato modificado en formulario: ", this.experienceForm.value);
+        this.principalInfoService.saveExperience(this.experienceForm.value as IProfessionalExpItem);
+        console.log("[ProfessionalExpComponent] Item modificado");
+        this.professionalExpItems = this.principalInfoService.PorfessionalExpItems;
+        console.log("[ProfessionalExpComponent] Actaulizada lista ", this.professionalExpItems);
+        this.clearProfessionalExpItem(this.professionalExpItemRecived);
+        console.log("[ProfessionalExpComponent] Item temporal limpiado: ", this.professionalExpItemRecived);
+        this.experienceForm.reset();
+      }
+      else{
+        console.log("[ProfessionalExpComponent] Recibido del formulario: ", this.experienceForm.value);
+        this.principalInfoService.saveExperience(this.experienceForm.value as IProfessionalExpItem);
+        this.professionalExpItems = this.principalInfoService.PorfessionalExpItems;
+        console.log("[ProfessionalExpComponent] Actaulizada lista ", this.professionalExpItems);
+        this.experienceForm.reset();
+      }
+      
     }
     else{
       alert("[ProfessionalExpComponent] Error en formulario!");
@@ -78,4 +103,21 @@ export class ProfessionalExpComponent implements OnInit {
     }
   }
 
+  professionalExpItemToModify(professionalExp:IProfessionalExpItem):void{
+    console.log("[ProfessionalExpComponent] Recibido del ProfessionalExpItem: ", professionalExp);
+    this.professionalExpItemRecived = professionalExp;
+    console.log("[ProfessionalExpComponent] item recibido y cargado, ",this.professionalExpItemRecived);
+    this.formActivated = true;
+    }
+
+  clearProfessionalExpItem(professionalExp:IProfessionalExpItem):void{
+    professionalExp.id = -1;
+  }
+
+  professionalExpDelete(professionalExp:IProfessionalExpItem):void{
+    console.log("[ProfessionalExpComponent] Item a eliminar: ", professionalExp);
+    this.principalInfoService.deleteProfessionalExp(professionalExp);
+    this.professionalExpItems = this.principalInfoService.PorfessionalExpItems;
+    console.log("[ProfessionalExpComponent] Lista actualizada: ", this.professionalExpItems);
+  }
 }

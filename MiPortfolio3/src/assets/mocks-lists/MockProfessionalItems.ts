@@ -3,8 +3,8 @@ import { IProfessionalExpItem } from "src/app/interfaces/professional-exp-item";
 export const ProfessionalExpItems: IProfessionalExpItem[] = [
     {
         id: 1,
-        startDate: "01/01/2000",
-        endDate: "02/02/2004",
+        startDate: "2000/01/01",
+        endDate: "2004/02/20",
         city: "Corrientes",
         country: "Argentina",
         enterpriseName: "Fiat Company",
@@ -13,8 +13,8 @@ export const ProfessionalExpItems: IProfessionalExpItem[] = [
     },
     {
         id:2,
-        startDate: "05/01/2005",
-        endDate: "02/02/2006",
+        startDate: "2005/05/01",
+        endDate: "2006/02/02",
         city: "Buenos Aires",
         country: "Argentina",
         enterpriseName: "Supermercado Impulso",
@@ -23,8 +23,8 @@ export const ProfessionalExpItems: IProfessionalExpItem[] = [
     },
     {
         id: 3,
-        startDate: "15/05/2010",
-        endDate: "22/02/2014",
+        startDate: "2010/10/05",
+        endDate: "2014/05/02",
         city: "New York",
         country: "United States",
         enterpriseName: "Globant",

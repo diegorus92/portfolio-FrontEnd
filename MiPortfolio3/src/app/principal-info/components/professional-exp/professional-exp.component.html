@@ -10,7 +10,7 @@
         <div class="row">
           <div class="col en-linea">
             <label>Fecha de inicio: </label>
-            <input class="form-control fecha" formControlName="startDate" type="date" aria-label=".form-control-sm example">
+            <input class="form-control fecha" formControlName="startDate" type="date" [(ngModel)]="professionalExpItemRecived.startDate"  aria-label=".form-control-sm example">
             <p class="error" *ngIf="StartDate?.touched && StartDate?.errors?.['required']">El campo no puede quedar vacío</p>
           </div>
         </div>
@@ -18,7 +18,7 @@
         <div class="row">
           <div class="col en-linea">
             <label>Fecha de finalización: </label>
-            <input class="form-control fecha" formControlName="endDate" type="date" aria-label=".form-control-sm example">
+            <input class="form-control fecha" formControlName="endDate" type="date" [(ngModel)]="professionalExpItemRecived.endDate" aria-label=".form-control-sm example">
             <p class="error" *ngIf="EndDate?.touched && EndDate?.errors?.['required']"> El campo no puede quedar vacío </p>
           </div>
         </div>
@@ -26,25 +26,25 @@
         <div class="row">
           <div class="col en-linea">
             <label>Ciudad: </label>
-            <input class="form-control normal" formControlName="city" type="text"  aria-label=".form-control-sm example">
+            <input class="form-control normal" formControlName="city" type="text" [(ngModel)]="professionalExpItemRecived.city" aria-label=".form-control-sm example">
             <p class="error" *ngIf="City?.touched && City?.errors?.['required']"> El campo no puede quedar vacío </p>
             
             <label>País: </label>
-            <input class="form-control normal" formControlName="country" type="text" aria-label=".form-control-sm example">
+            <input class="form-control normal" formControlName="country" type="text" [(ngModel)]="professionalExpItemRecived.country"  aria-label=".form-control-sm example">
             <p class="error" *ngIf="Country?.touched && Country?.errors?.['required']"> El campo no puede quedar vacío </p>
           </div>
         </div>
 
         <div class="row">
           <div class="col">
-            <input class="form-control" formControlName="enterpriseName" type="text" placeholder="Nombre de la empresa" aria-label=".form-control-sm example">
+            <input class="form-control" formControlName="enterpriseName" type="text"  [(ngModel)]="professionalExpItemRecived.enterpriseName" placeholder="Nombre de la empresa" aria-label=".form-control-sm example">
             <p class="error" *ngIf="EnterpriseName?.touched && EnterpriseName?.errors?.['required']"> El campo no puede quedar vacío </p>
             
-            <input class="form-control" formControlName="position" type="text" placeholder="Posición o cargo ocupado" aria-label=".form-control-sm example">
+            <input class="form-control" formControlName="position" type="text" [(ngModel)]="professionalExpItemRecived.position"  placeholder="Posición o cargo ocupado" aria-label=".form-control-sm example">
             <p class="error" *ngIf="Position?.touched && Position?.errors?.['required']"> El campo no puede quedar vacío </p>
             
             <label for="FormControlTextarea1" class="form-label">Descripción:</label>
-            <textarea class="form-control" formControlName="description" id="FormControlTextarea1" rows="3"></textarea>
+            <textarea class="form-control" formControlName="description" [(ngModel)]="professionalExpItemRecived.description"  id="FormControlTextarea1" rows="3"></textarea>
           </div>
         </div>
 
@@ -58,8 +58,13 @@
     </div>
     <!----------------------------->
 
+    <!--DESPLIEGUE DE ITEMS-->
     <div class="container" *ngFor="let profession of professionalExpItems">
-      <app-professional-exp-item [professionalExp]="profession"></app-professional-exp-item>
+      <app-professional-exp-item 
+        [professionalExp]="profession" 
+        (professionalItemEvent)="professionalExpItemToModify($event)"
+        (professionalItemToDeleteEvent)="professionalExpDelete($event)"></app-professional-exp-item>
     </div>
+    <!------------------------>
 </div>
 
