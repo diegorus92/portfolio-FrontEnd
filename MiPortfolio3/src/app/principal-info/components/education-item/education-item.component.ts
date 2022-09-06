@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { faSquarePen, faTrashCan } from '@fortawesome/free-solid-svg-icons'
 import { IEducation } from 'src/app/interfaces/education-item';
 
@@ -21,8 +21,17 @@ export class EducationItemComponent implements OnInit {
     degree: "Sistems Engineer",
     institution: "University of San Francisco"
   }
+  @Output() editionEducationEvent = new EventEmitter<IEducation>();
+  @Output() removeEducationEvent = new EventEmitter<IEducation>();
 
   ngOnInit(): void {
   }
 
+  educationEmitter(education: IEducation):void{
+    this.editionEducationEvent.emit(education);
+  }
+
+  educationToRemoveEmitter(education: IEducation):void{
+    this.removeEducationEvent.emit(education);
+  }
 }

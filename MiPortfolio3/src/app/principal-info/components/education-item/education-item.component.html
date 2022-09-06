@@ -6,8 +6,8 @@
         <p><i>({{education.city}}, {{education.country}})</i></p>
       </div>
       <div class="col-8">
-        <fa-icon [icon]="editIcon"></fa-icon>
-        <fa-icon [icon]="removeIcon"></fa-icon>
+        <fa-icon [icon]="editIcon" class="edit-icon" (click)="educationEmitter(education)"></fa-icon>
+        <fa-icon [icon]="removeIcon" class="remove-icon" (click)="educationToRemoveEmitter(education)"></fa-icon>
         <h5>{{education.degree}}</h5>
         <p class="cargo">{{education.institution}}</p>
       </div>

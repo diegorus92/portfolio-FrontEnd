@@ -26,6 +26,7 @@ export class EducationComponent implements OnInit {
     degree:['', [Validators.required]],
     institution: ['', [Validators.required]]
   })
+  educationItemTemp!:IEducation;
 
   ngOnInit(): void {
   }
@@ -62,19 +63,55 @@ export class EducationComponent implements OnInit {
     this.principalInfoService.saveEducation(education);
   }
 
+  educationToEdit(education:IEducation): void {
+    console.log("[EducationComponent] Educación recibida desde EducationItemComponent: ", education);
+    this.educationItemTemp = education;
+    this.formActive = true;
+  }
+
+  clearEducationItemTemp(educationTemp:IEducation): void {
+    educationTemp.id! = -1; 
+    educationTemp.startDateYear = '';
+    educationTemp.endDateYear = '';
+    educationTemp.city = '';
+    educationTemp.country = '';
+    educationTemp.degree = '';
+    educationTemp.institution = '';
+  }
+
+  educationToRemove(education:IEducation): void {
+    console.log("[EducationComponent]Removiendo educación: ", education);
+    this.principalInfoService.removeEducationItem(education);
+    this.educationItems = this.principalInfoService.EducationItems;
+    console.log("[EducationComponent]Lista actualizada luego de eliminació: ", this.educationItems);
+  }
+
   onSend(event: Event): void {
     event.preventDefault();
 
     if(this.educationForm.valid){
-      console.log("[EducationComponent] Recibido del formulario: ", this.educationForm.value);
-      this.saveEducation(this.educationForm.value as IEducation);
-      this.educationItems = this.principalInfoService.EducationItems;
-      console.log("[EducationComponent] Lista actualizada: ", this.educationItems);
-      this.educationForm.reset();
+      if(this.educationItemTemp.id! > -1){
+        this.educationForm.value.id! = this.educationItemTemp.id;
+        this.principalInfoService.modifyEducationItem(this.educationForm.value as IEducation);
+        this.clearEducationItemTemp(this.educationItemTemp);
+        this.educationItems = this.principalInfoService.EducationItems;
+        this.educationForm.reset();
+        this.formActive = false;
+        console.log("[EducationComponent] Lista actualizada luego de edición: ", this.educationItems);
+      }
+      else{
+        console.log("[EducationComponent] Recibido del formulario: ", this.educationForm.value);
+        this.saveEducation(this.educationForm.value as IEducation);
+        this.educationItems = this.principalInfoService.EducationItems;
+        console.log("[EducationComponent] Lista actualizada: ", this.educationItems);
+        this.educationForm.reset();
+      }
+      
     }
     else{
       alert("[EducationComponent] formulario incorrecto");
       this.educationForm.markAllAsTouched();
     }
   }
+
 }
