@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { faSquarePen, faTrashCan } from '@fortawesome/free-solid-svg-icons';
 import { IInterest } from 'src/app/interfaces/interest-item';
 
@@ -17,8 +17,17 @@ export class InterestItemComponent implements OnInit {
     label: "Jugar",
     description: "Lorem Ipsum is simply dummy text of the printing"
   }
+  @Output() interestToEditEvent = new EventEmitter<IInterest>();
+  @Output() interestToRemoveEvent = new EventEmitter<IInterest>();
 
   ngOnInit(): void {
   }
 
+  interestToEditEmitter(interest:IInterest):void{
+    this.interestToEditEvent.emit(interest);
+  }
+
+  interestToRemoveEmitter(interest:IInterest):void{
+    this.interestToRemoveEvent.emit(interest);
+  }
 }

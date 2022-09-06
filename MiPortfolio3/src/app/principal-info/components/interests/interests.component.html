@@ -1,11 +1,38 @@
 <div class="container-sm">
     <h4 class="encabezado">
       INTERESES <a routerLink="/" aria-curren="home-page">[hidde]</a>
-      <fa-icon [icon]="addIcon"></fa-icon>
+      <fa-icon [icon]="addIcon" class="add-icon" (click)="toggleForm()"></fa-icon>
     </h4>
+    <div class="container-sm formulario" *ngIf="formActive">
+        <form [formGroup]="interestForm" (ngSubmit)="onSend($event)">
+            <input 
+                class="form-control" 
+                type="text" 
+                placeholder="Interés" 
+                aria-label="default input example"
+                formControlName="label"
+                [ngModel]="interestRecivedTemp.label">
+                <p class="error" *ngIf="Label?.touched && Label?.errors">Este campo no puede quedar vacío</p>
+            
+            
+            <input 
+                class="form-control" 
+                type="text" 
+                placeholder="Descripción" 
+                aria-label="default input example"
+                formControlName="description"
+                [ngModel]="interestRecivedTemp.description">
+
+
+            <button type="submit" class="btn btn-primary">Guardar</button>
+        </form>
+    </div>
     <ul class="list-group text-start">
         <li class="list-group-item list-group-item-primary" *ngFor="let interest of interests">
-            <app-interest-item [interest]="interest"></app-interest-item>
+            <app-interest-item 
+                [interest]="interest" 
+                (interestToEditEvent)="interestToEditRecived($event)"
+                (interestToRemoveEvent)="interestToRemove($event)"></app-interest-item>
         </li>
     </ul>
 </div>

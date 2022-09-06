@@ -1,5 +1,5 @@
-<fa-icon [icon]="editIcon"></fa-icon>
-<fa-icon [icon]="removeIcon"></fa-icon>
+<fa-icon [icon]="editIcon" class="edit-icon" (click)="interestToEditEmitter(interest)"></fa-icon>
+<fa-icon [icon]="removeIcon" class="remove-icon" (click)="interestToRemoveEmitter(interest)"></fa-icon>
 <p>
     <b>{{interest.label}}:</b> {{interest.description}}
 </p>

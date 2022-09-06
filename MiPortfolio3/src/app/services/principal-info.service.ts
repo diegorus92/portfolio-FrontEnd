@@ -311,4 +311,36 @@ export class PrincipalInfoService {
     console.log("[PrincipalInfoService] Educación removida", this.educationItems);
   }
   /////////////////////////////////////////////////
+
+  //////////////////INTERESES//////////////////////
+  private setInterestId():number{
+    return this.interests.length > 0 ? Math.max(...this.interests.map(item => item.id!)) + 1 : 1;
+  }
+
+  private findInterestItem(interest: IInterest):number{
+    return this.interests.findIndex(item => item.id == interest.id);
+  }
+
+  saveInterest(interest:IInterest):void{
+    interest.id! = this.setInterestId();
+    this.interests.push(interest);
+    console.log("[PrincipalInfoService]Agregado nuevo interes a lista: ", this.interests);
+  }
+
+  modifyInterest(interest:IInterest):void{
+    let index = this.findInterestItem(interest);
+    if(index > -1){
+      this.interests[index] = interest;
+      console.log("[PrincipalInfoService] Interes modificado en indice: ", index, "Resultado: ", this.interests);
+    }
+    else{
+      console.log("[PrincipalInfoService] Indice de interes no encontrado");
+    }
+  }
+
+  removeInterest(interest:IInterest):void{
+    this.interests.splice(this.findInterestItem(interest), 1);
+    console.log("[PrincipalInfoService]Interes removido: ", this.interests);
+  }
+  ////////////////////////////////////////////////
 }
