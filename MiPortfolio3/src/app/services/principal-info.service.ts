@@ -278,4 +278,17 @@ export class PrincipalInfoService {
     console.log("[PrincipalInfoService] Lista luego de la eliminación", this.professionalExpItems);
   }
   ///////////////////////////////////////////////////
+
+  /////////////////EDUCACIÓN////////////////////////
+  private setEducationId():number{
+    return this.educationItems.length > 0 ? Math.max(...this.educationItems.map(item => item.id!)) + 1 : 1;
+  }
+
+  saveEducation(education:IEducation):void{
+    education.id = this.setEducationId();
+    console.log("[PrincipalInfoService] agregado ID a la educación: ", education);
+    this.educationItems.push(education);
+    console.log("[PrincipalInfoService] Agregado a lista: ", this.educationItems);
+  }
+  /////////////////////////////////////////////////
 }

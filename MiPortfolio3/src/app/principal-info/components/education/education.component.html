@@ -1,8 +1,88 @@
 <div class="container-sm">
     <h4 class="encabezado">
       EDUCACIÓN <a routerLink="/" aria-curren="home-page">[hidde]</a>
-      <fa-icon [icon]="addIcon"></fa-icon>
+      <fa-icon [icon]="addIcon" class="add-icon" (click)="toggleForm()"></fa-icon>
     </h4>
+    <div class="container-sm formulario" *ngIf="formActive">
+      <form [formGroup]="educationForm" (ngSubmit)="onSend($event)">
+        <input 
+          class="form-control form-control-sm" 
+          type="number" min="1940" 
+          placeholder="Año de inicio" 
+          formControlName="startDateYear"
+          aria-label=".form-control-sm example">
+          <p 
+            class="error" 
+            *ngIf="StartDateYear?.touched && StartDateYear?.errors?.['required']">
+              Este campo no puede quedar vacío
+          </p>
+
+
+        <input 
+          class="form-control form-control-sm" 
+          type="number" 
+          min="1940" 
+          placeholder="Año de finalización" 
+          formControlName="endDateYear"
+          aria-label=".form-control-sm example">
+
+
+        <input 
+          class="form-control form-control-sm" 
+          type="text" 
+          placeholder="Ciudad"
+          formControlName="city" 
+          aria-label=".form-control-sm example">
+          <p 
+            class="error" 
+            *ngIf="City?.touched && City?.errors?.['required']">
+              Este campo no puede quedar vacío
+          </p>
+
+
+        <input 
+          class="form-control form-control-sm" 
+          type="text" 
+          placeholder="País" 
+          formControlName="country"
+          aria-label=".form-control-sm example">
+          <p 
+            class="error" 
+            *ngIf="Country?.touched && Country?.errors?.['required']">
+              Este campo no puede quedar vacío
+          </p>
+
+
+        <input 
+          class="form-control form-control-sm" 
+          type="text" 
+          placeholder="Título" 
+          formControlName="degree"
+          aria-label=".form-control-sm example">
+          <p 
+            class="error" 
+            *ngIf="Degree?.touched && Degree?.errors?.['required']">
+              Este campo no puede quedar vacío
+          </p>
+
+
+        <input 
+          class="form-control form-control-sm" 
+          type="text" 
+          placeholder="Institución" 
+          formControlName="institution"
+          aria-label=".form-control-sm example">
+          <p 
+            class="error" 
+            *ngIf="Institution?.touched && Institution?.errors?.['required']">
+              Este campo no puede quedar vacío
+          </p>
+
+
+        <button type="submit" class="btn btn-primary">Guardar</button>
+      </form>
+    </div>
+    
     <div class="container" *ngFor="let education of educationItems">
         <app-education-item [education]="education"></app-education-item>
     </div>
