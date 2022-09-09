@@ -4,17 +4,22 @@ import { SkillsComponent } from './components/skills/skills.component';
 import { NgChartsModule } from 'ng2-charts';
 import { SkillsSectionComponent } from './components/skills-section/skills-section.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { SkillsFormComponent } from './components/skills-form/skills-form.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
   declarations: [
     SkillsComponent,
-    SkillsSectionComponent
+    SkillsSectionComponent,
+    SkillsFormComponent
   ],
   imports: [
     CommonModule,
     NgChartsModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   exports: [
     SkillsComponent,

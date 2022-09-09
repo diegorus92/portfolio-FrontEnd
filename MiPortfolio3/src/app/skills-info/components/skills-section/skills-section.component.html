@@ -1,17 +1,21 @@
 <div class="container-sm text-center">
     <div class="row">
+      <!--HARD SKILLS-->
         <div class="col">
           <section class="titulo">
             <h3 class="item">Hard Skills</h3>
-            <fa-icon [icon]="editIcon"></fa-icon>
+            <fa-icon [icon]="editIcon" class="edit-icon" (click)="toggleForm()"></fa-icon>
           </section>
+          <app-skills-form *ngIf="formActive" [hardSkills]="hardSkills" (hardSkillsDataEvent)="hardSkillsDataRecived($event)"></app-skills-form>
           <!--Datos gráficos (con chart js) -->   
           <app-skills [doughnutChartData]="hardSkills"></app-skills>
         </div>
+
+        <!--SOFT SKILLS-->
         <div class="col">
             <section class="titulo">
                 <h3 class="item">Soft Skills</h3>
-                <fa-icon [icon]="editIcon"></fa-icon>
+                <fa-icon [icon]="editIcon" class="edit-icon"></fa-icon>
             </section>
             <!--Datos gráficos (con chart js) -->   
             <app-skills [doughnutChartData]="softSkills"></app-skills>

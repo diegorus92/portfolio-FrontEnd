@@ -18,8 +18,20 @@ export class SkillsSectionComponent implements OnInit {
   hardSkills:ISkill = this.skillService.HardSkills;
   softSkills:ISkill = this.skillService.SoftSkills;
 
+  formActive:boolean = false;
+
 
   ngOnInit(): void {
   }
 
+  toggleForm(): void {
+    this.formActive = !this.formActive;
+  }
+
+  hardSkillsDataRecived(hardSkillsData:number[]):void{
+    console.log("[SkillsSectionComponent] datas HardSkills recibido del form: ", hardSkillsData);
+    this.skillService.modifyHardSkillsData(hardSkillsData);
+    this.hardSkills = this.skillService.HardSkills;
+    this.formActive = false;
+  }
 }

@@ -2,6 +2,9 @@ import { Injectable } from '@angular/core';
 import { ISkill } from '../interfaces/skill';
 import { HardSkills, SoftSkills } from 'src/assets/mocks-lists/MockSkills';
 
+const HARDSKILLSID = 1;
+const SOFTSKILLSID = 2
+
 @Injectable({
   providedIn: 'root'
 })
@@ -19,5 +22,10 @@ export class SkillService {
 
   get SoftSkills(): ISkill{
     return this.softSkills;
+  }
+
+  modifyHardSkillsData(hardSkillsData:number[]){
+    this.HardSkills.datasets[0].data = hardSkillsData;
+    console.log("[SkillSevice] Modificado valores de HardSkills:", this.hardSkills);
   }
 }

@@ -1,6 +1,7 @@
 import { ISkill } from "src/app/interfaces/skill";
 
 export const HardSkills:ISkill = {
+    id: 1,
     datasets: [
         { 
             data:[100, 50, 100, 30, 45, 20],
@@ -26,6 +27,7 @@ export const HardSkills:ISkill = {
 };
 
 export const SoftSkills:ISkill = {
+    id: 2,
     datasets: [
         { 
             data:[100, 50, 85, 60, 45, 90],
