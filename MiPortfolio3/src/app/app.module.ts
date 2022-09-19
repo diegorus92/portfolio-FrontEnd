@@ -10,10 +10,10 @@ import { SocialNetComponent } from './components/social-net/social-net.component
 import { BannerModule } from './banner/banner.module';
 import { PrincipalInfoModule } from './principal-info/principal-info.module';
 import { AppRoutingModule } from './app-routing-module/app-routing-module.ts.module';
-import { SkillsInfoModule } from './skills-info/skills-info.module';
 import { ProjectsModule } from './projects/projects.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SocialNetFormComponent } from './components/social-net-form/social-net-form.component';
+import { NgChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -29,11 +29,11 @@ import { SocialNetFormComponent } from './components/social-net-form/social-net-
     BannerModule,
     PrincipalInfoModule,
     AppRoutingModule,
-    SkillsInfoModule,
     ProjectsModule,
     NgbModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
