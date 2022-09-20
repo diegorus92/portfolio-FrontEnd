@@ -1,6 +1,46 @@
 <div class="row">
     <div class="col">
-        <fa-icon [icon]="addIcon" class="fa-3x"></fa-icon>
+        <fa-icon [icon]="addIcon" class="fa-3x add-icon" (click)="toggleForm()"></fa-icon>
+        <div class="container" *ngIf="formActivated">
+            <form [formGroup]="projectForm" (ngSubmit)="onSend($event)">
+                <input 
+                    class="form-control" 
+                    type="text" placeholder="Titulo del proyecto" 
+                    aria-label="default input example"
+                    formControlName="title">
+                <p class="error" *ngIf="Title?.touched && Title?.errors">Este campo no puede quedar vacío</p>
+                
+                
+                <input 
+                    class="form-control" 
+                    type="text" 
+                    placeholder="Breve descripción del proyecto" 
+                    aria-label="default input example"
+                    formControlName="short">
+                <p class="error" *ngIf="Short?.touched && Short?.errors">Este campo no puede quedar vacío</p>
+                
+                
+                <input 
+                    class="form-control" 
+                    type="text" 
+                    placeholder="Link/enlace a una imagen del proyecto" 
+                    aria-label="default input example"
+                    formControlName="src">
+                <p class="error" *ngIf="Src?.touched && Src?.errors">Este campo no puede quedar vacío</p>
+
+
+                <input 
+                    class="form-control" 
+                    type="text"
+                    placeholder="link/enlace al proyecto" 
+                    aria-label="default input example"
+                    formControlName="link">
+                    <p class="error" *ngIf="Link?.touched && Link?.errors">Este campo no puede quedar vacío</p>
+            
+                
+                <button type="submit" class="btn btn-primary">Guardar</button>
+            </form>
+        </div>
         <ngb-carousel>
             <ng-template ngbSlide *ngFor="let project of projects">
               <app-project-item [project]="project"></app-project-item>

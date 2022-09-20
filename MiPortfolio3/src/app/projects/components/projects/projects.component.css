@@ -2,3 +2,11 @@ fa-icon{
     margin-left: 48%;
 }
 
+.btn{
+    width: 100%;
+}
+
+.error{
+    color:red;
+}
+
