@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { faSquarePen, faTrashCan } from '@fortawesome/free-solid-svg-icons';
 import { IProject } from 'src/app/interfaces/project-item';
 
@@ -22,7 +22,12 @@ export class ProjectItemComponent implements OnInit {
     link: "#"
   }; 
 
+  @Output() projectToEditEvent = new EventEmitter<IProject>();
+
   ngOnInit(): void {
   }
 
+  projectToEditEmitter(project: IProject): void{
+    this.projectToEditEvent.emit(project);
+  }
 }

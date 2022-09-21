@@ -7,7 +7,8 @@
                     class="form-control" 
                     type="text" placeholder="Titulo del proyecto" 
                     aria-label="default input example"
-                    formControlName="title">
+                    formControlName="title"
+                    [ngModel]="projectRecivedTemp.title">
                 <p class="error" *ngIf="Title?.touched && Title?.errors">Este campo no puede quedar vacío</p>
                 
                 
@@ -16,7 +17,8 @@
                     type="text" 
                     placeholder="Breve descripción del proyecto" 
                     aria-label="default input example"
-                    formControlName="short">
+                    formControlName="short"
+                    [ngModel]="projectRecivedTemp.short">
                 <p class="error" *ngIf="Short?.touched && Short?.errors">Este campo no puede quedar vacío</p>
                 
                 
@@ -25,7 +27,8 @@
                     type="text" 
                     placeholder="Link/enlace a una imagen del proyecto" 
                     aria-label="default input example"
-                    formControlName="src">
+                    formControlName="src"
+                    [ngModel]="projectRecivedTemp.src">
                 <p class="error" *ngIf="Src?.touched && Src?.errors">Este campo no puede quedar vacío</p>
 
 
@@ -34,7 +37,8 @@
                     type="text"
                     placeholder="link/enlace al proyecto" 
                     aria-label="default input example"
-                    formControlName="link">
+                    formControlName="link"
+                    [ngModel]="projectRecivedTemp.link">
                     <p class="error" *ngIf="Link?.touched && Link?.errors">Este campo no puede quedar vacío</p>
             
                 
@@ -43,7 +47,7 @@
         </div>
         <ngb-carousel>
             <ng-template ngbSlide *ngFor="let project of projects">
-              <app-project-item [project]="project"></app-project-item>
+              <app-project-item [project]="project" (projectToEditEvent)="projectToEditRecived($event)"></app-project-item>
             </ng-template>
         </ngb-carousel>
     </div>

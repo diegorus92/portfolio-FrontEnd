@@ -7,8 +7,8 @@
     <p>{{ project.short }}</p>
     <a [href]= "project.link" target="_blank">Visitar</a>
     <article>
-        <fa-icon [icon]="editIcon" class="fa-2x"></fa-icon>
-        <fa-icon [icon]="removeIcon" class="fa-2x"></fa-icon>
+        <fa-icon [icon]="editIcon" (click)="projectToEditEmitter(project)" class="fa-2x edit-icon"></fa-icon>
+        <fa-icon [icon]="removeIcon" class="fa-2x remove-icon"></fa-icon>
     </article>
     
   </div>

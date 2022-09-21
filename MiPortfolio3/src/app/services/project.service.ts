@@ -26,4 +26,19 @@ export class ProjectService {
     console.log("[ProjectService] se agregó proyecto: ", project);
     console.log("[ProjectService] ", this.projects);
   }
+
+  private findProjectItem(project: IProject):number{
+    return this.projects.findIndex(item => item.id == project.id);
+  }
+
+  modifyProject(project: IProject):void{
+    let index = this.findProjectItem(project);
+    if(index > -1){
+      this.projects[index] = project;
+      console.log("[ProjectService] Proyecto modificado en indice: ",index," Resultado: ", this.projects);
+    }
+    else{ 
+      console.log("[ProjectService] Proyecto no encontrado");
+    }
+  }
 }
