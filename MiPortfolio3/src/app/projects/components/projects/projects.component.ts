@@ -74,9 +74,16 @@ export class ProjectsComponent implements OnInit {
   }
 
   projectToEditRecived(project: IProject): void {
-    console.log("[ProjectsComponent] Proyecto recibido: ", project);
+    console.log("[ProjectsComponent] Proyecto recibido para editar: ", project);
     this.projectRecivedTemp = project;
     this.formActivated = true;
+  }
+
+  removeProject(project: IProject):void{
+    console.log("[ProjectsComponent] Proyecto recibido para remover: ", project);
+    this.projectService.removeProject(project);
+    this.projects = this.projectService.Projects;
+    console.log("[ProjectsComponent] Lista actualizada: ", this.projects);
   }
 
   onSend(event: Event): void {

@@ -47,7 +47,10 @@
         </div>
         <ngb-carousel>
             <ng-template ngbSlide *ngFor="let project of projects">
-              <app-project-item [project]="project" (projectToEditEvent)="projectToEditRecived($event)"></app-project-item>
+              <app-project-item 
+                [project]="project" 
+                (projectToEditEvent)="projectToEditRecived($event)"
+                (projectToRemoveEvent)="removeProject($event)"></app-project-item>
             </ng-template>
         </ngb-carousel>
     </div>

@@ -19,6 +19,7 @@ export class ProjectService {
     return this.projects.length > 0 ? Math.max(...this.projects.map(project => project.id!)) + 1 : 1;
   }
 
+
   addProject(project: IProject):void{
     console.log("[ProjectService] se agregará id a :", project);
     project.id = this.setId();
@@ -40,5 +41,11 @@ export class ProjectService {
     else{ 
       console.log("[ProjectService] Proyecto no encontrado");
     }
+  }
+
+  removeProject(project: IProject):void{
+    console.log("[ProjectService] Proyecto recibido para remover: ",project);
+    this.projects.splice(this.findProjectItem(project), 1);
+    console.log("[ProjectService] Proyecto removido con exito, lista actualizada: ",this.projects);
   }
 }

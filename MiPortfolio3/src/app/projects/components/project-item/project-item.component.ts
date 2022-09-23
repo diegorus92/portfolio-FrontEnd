@@ -23,11 +23,16 @@ export class ProjectItemComponent implements OnInit {
   }; 
 
   @Output() projectToEditEvent = new EventEmitter<IProject>();
+  @Output() projectToRemoveEvent = new EventEmitter<IProject>();
 
   ngOnInit(): void {
   }
 
   projectToEditEmitter(project: IProject): void{
     this.projectToEditEvent.emit(project);
+  }
+
+  projectToRemoveEmitter(project: IProject): void{
+    this.projectToRemoveEvent.emit(project);
   }
 }
