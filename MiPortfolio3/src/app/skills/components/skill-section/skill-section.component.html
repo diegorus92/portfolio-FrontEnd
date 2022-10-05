@@ -1,0 +1,17 @@
+<div class="container-sm">
+    <h3>HABILIDADES</h3>
+    <div class="row align-items-center">
+        <div class="col">
+            <p><b>Hard Skills</b></p>
+            <div class="container-sm" *ngFor=" let hardSkill of hardSkills">
+                <app-skill-item [skill] = "hardSkill"></app-skill-item>
+            </div>
+        </div>
+        <div class="col">
+            <p><b>Soft Skills</b></p>
+            <div class="container-sm" *ngFor=" let softSkill of softSkills">
+                <app-skill-item [skill] = "softSkill"></app-skill-item>
+            </div>
+        </div>
+      </div>
+</div>

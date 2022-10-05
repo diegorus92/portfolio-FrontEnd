@@ -14,6 +14,7 @@ import { ProjectsModule } from './projects/projects.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SocialNetFormComponent } from './components/social-net-form/social-net-form.component';
 import { NgChartsModule } from 'ng2-charts';
+import { SkillsModule } from './skills/skills.module';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { NgChartsModule } from 'ng2-charts';
     NgbModule,
     FormsModule,
     ReactiveFormsModule,
-    NgChartsModule
+    NgChartsModule,
+    SkillsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
