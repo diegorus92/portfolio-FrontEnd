@@ -1,0 +1,11 @@
+.cabecera{
+    display: flex;
+} 
+
+.cabecera fa-icon{
+    margin-left: 5%;
+}
+
+.error{
+    color:red;
+}

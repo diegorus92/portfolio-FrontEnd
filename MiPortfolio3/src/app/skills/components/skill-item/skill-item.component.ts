@@ -1,6 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import {NgbProgressbarConfig} from '@ng-bootstrap/ng-bootstrap';
-import { ISkill } from 'src/app/interfaces/skill-item';
+import { ISkill, skillType } from 'src/app/interfaces/skill-item';
+import { faSquarePen } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-skill-item',
@@ -20,10 +21,19 @@ export class SkillItemComponent implements OnInit {
 
   @Input() skill: ISkill = {
     name: "Habilidad X",
-    value: 50
+    value: 50,
+    type: skillType.HARD
   }
+
+  @Output() editionSkillEvent: EventEmitter<ISkill> = new EventEmitter<ISkill>()
+
+  editIcon = faSquarePen;
 
   ngOnInit(): void {
   }
 
+
+  editSkillEmitter(skill:ISkill): void{
+    this.editionSkillEvent.emit(skill);
+  }
 }

@@ -1,5 +1,6 @@
 <div class="container-sm">
     <h5>{{skill.name}}</h5>
+    <fa-icon [icon]="editIcon" class="edit-icon" (click)="editSkillEmitter(skill)"></fa-icon>
     <p><ngb-progressbar [value]="skill.value"></ngb-progressbar></p>
 </div>
 

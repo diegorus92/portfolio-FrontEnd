@@ -1,16 +1,38 @@
 <div class="container-sm">
     <h3>HABILIDADES</h3>
+    <div class="container-sm" *ngIf="formSkillActive">
+        <form [formGroup]="skillForm" (ngSubmit)="onSend($event)">
+            <label>{{skillTemp.name}}</label>
+            <input 
+                class="form-control" 
+                type="number" 
+                min="0"
+                max="100" 
+                aria-label="default input example"
+                formControlName="value"
+                [(ngModel)]="skillTemp.value"
+                >
+                <p class="error" *ngIf="Value?.touched && Value?.errors">Este campo no puede esta vacio</p>
+                <button type="submit" class="btn btn-primary">Guardar</button>
+        </form>
+    </div>
     <div class="row align-items-center">
         <div class="col">
             <p><b>Hard Skills</b></p>
             <div class="container-sm" *ngFor=" let hardSkill of hardSkills">
-                <app-skill-item [skill] = "hardSkill"></app-skill-item>
+                <app-skill-item 
+                    [skill] = "hardSkill"
+                    (editionSkillEvent)="skillToEdit($event)"
+                    ></app-skill-item>
             </div>
         </div>
         <div class="col">
             <p><b>Soft Skills</b></p>
             <div class="container-sm" *ngFor=" let softSkill of softSkills">
-                <app-skill-item [skill] = "softSkill"></app-skill-item>
+                <app-skill-item 
+                    [skill] = "softSkill"
+                    (editionSkillEvent)="skillToEdit($event)"
+                    ></app-skill-item>
             </div>
         </div>
       </div>
