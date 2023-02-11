@@ -19,6 +19,7 @@ import { EducationItemComponent } from './components/education-item/education-it
 import { InterestsComponent } from './components/interests/interests.component';
 import { InterestItemComponent } from './components/interest-item/interest-item.component';
 import { AppRoutingModule } from '../app-routing-module/app-routing-module.ts.module';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -47,6 +48,7 @@ import { AppRoutingModule } from '../app-routing-module/app-routing-module.ts.mo
     ReactiveFormsModule,
     FontAwesomeModule,
     AppRoutingModule,
+    HttpClientModule
   ],
   exports: [
     PrincipalInfoComponent

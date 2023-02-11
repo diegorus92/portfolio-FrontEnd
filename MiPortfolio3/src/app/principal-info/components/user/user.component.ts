@@ -15,7 +15,9 @@ export class UserComponent implements OnInit {
 
   editIcon = faSquarePen;
 
-  userData: UserData = this.principalInfoService.UserInfo;
+  //userData: UserData = this.principalInfoService.UserInfo; Usado con el MockUserData
+  usersData: UserData[] = [];
+  userData:UserData = {name:"pipo", surname:"pepe", position:"person"};
   editionForm:boolean = false;
   maxCharacters = 300;
 
@@ -23,7 +25,7 @@ export class UserComponent implements OnInit {
     name: ['', [Validators.required]],
     surname:['', [Validators.required]],
     position:['', [Validators.required]],
-    description!:['',[Validators.maxLength(this.maxCharacters)]],
+    description:['',[Validators.maxLength(this.maxCharacters)]],
   })
 
   get Name() { 
@@ -43,6 +45,17 @@ export class UserComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    
+    console.log("Hola User!");
+    this.principalInfoService.getUserInfo().subscribe((usersInfo) =>{
+      console.log("User de api: ", usersInfo);
+      this.usersData = usersInfo;
+      this.userData = this.usersData[0];
+      
+      this.principalInfoService.usersInfo = usersInfo;
+      this.principalInfoService.updateUserSubject();
+    })
+
   }
 
   toggleEdition(): void {
@@ -53,10 +66,10 @@ export class UserComponent implements OnInit {
     event.preventDefault();
 
     if(this.userForm.valid){
-      console.log("[UserComponent] Datos recibidos desde el form", this.userForm.value as UserData);
+      /*console.log("[UserComponent] Datos recibidos desde el form", this.userForm.value as UserData);
       this.principalInfoService.modifyUserData(this.userForm.value as UserData);
       this.userData = this.principalInfoService.UserInfo;
-      console.log("[UserComponent]Usuario modificado: ", this.userData);
+      console.log("[UserComponent]Usuario modificado: ", this.userData);*/
     }
     else{
       alert("[UserComponent] Formulario inválido");

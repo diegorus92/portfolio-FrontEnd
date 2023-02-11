@@ -19,15 +19,23 @@ import { IInterest } from '../interfaces/interest-item';
 import { Interests } from 'src/assets/mocks-lists/MockInterests';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import { faEnvelope, faMobileScreenButton, faPhone, faLocationDot } from '@fortawesome/free-solid-svg-icons';
+import { BehaviorSubject,  Observable } from 'rxjs';
+import { HttpClient, HttpHeaders, HttpParamsOptions } from '@angular/common/http';
 
 const referenceId:number = 1;
+
+const HttpOptions = {
+  headers: new HttpHeaders({
+    contentType: 'application/json',
+  })
+};
 
 @Injectable({
   providedIn: 'root'
 })
 export class PrincipalInfoService {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   private profilePicture:IProfilePicture = ProfilePicture;
   
@@ -39,11 +47,18 @@ export class PrincipalInfoService {
 
   private reference:IReference = ReferenceData;
   private idioms:IIdiomItem[] = IdiomItems;
-  private userInfo: UserData = UserInfo;
+  
+  //private userInfo: UserData = UserInfo; //Usado con el MockUserData
+  usersInfo:UserData[] = [];
+  private usersInfoSubject = new BehaviorSubject<UserData[]>([]);
+
   private professionalExpItems: IProfessionalExpItem[] = ProfessionalExpItems;
   private educationItems: IEducation[] = EducationItems;
   private interests:IInterest[] = Interests;
   
+  private apiURL: string = "http://localhost:8080/";
+
+
 
   get ProfilePicture():IProfilePicture {
     return this.profilePicture;
@@ -66,8 +81,12 @@ export class PrincipalInfoService {
     return this.idioms;
   }
 
-  get UserInfo():UserData {
+  //Usado con el MockUserData
+  /*get UserInfo():UserData {
     return this.userInfo;
+  }*/
+  get UserInfo$():Observable<UserData[]>{
+    return this.usersInfoSubject.asObservable();
   }
 
   get PorfessionalExpItems():IProfessionalExpItem[]{
@@ -231,13 +250,22 @@ export class PrincipalInfoService {
   //////////////////////////////////////
 
   //////////////////////USER/////////////////////
-  modifyUserData(user:UserData):void{
+  getUserInfo():Observable<UserData[]>{
+    return this.http.get<UserData[]>(this.apiURL+"users/get", HttpOptions);
+  }
+
+  updateUserSubject():void{
+    this.usersInfoSubject.next(this.usersInfo);
+  }
+
+  //Usado con el MockUSerData
+  /*modifyUserData(user:UserData):void{
     console.log("[principalInfoService] Dato de usuario recibido del UserComponent: ", user);
     user.id = this.userInfo.id; //Le copio el id del dato viejo al nuevo, dado que el id siempre será uno
     console.log("[principalInfoService] Agregado ID al Dato de usuario recibido: ", user);
     this.userInfo = user;
     console.log("[principalInfoService] Dato de usuario modificado: ", this.userInfo);
-  }
+  }*/
   //////////////////////////////////////////////
 
   /////////////EXPERIENCIA PROFESIONAL//////////////
