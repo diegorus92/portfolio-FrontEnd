@@ -56,7 +56,7 @@ export class PrincipalInfoService {
   private educationItems: IEducation[] = EducationItems;
   private interests:IInterest[] = Interests;
   
-  private apiURL: string = "http://localhost:8080/";
+  private apiURL: string = "http://localhost:8080";
 
 
 
@@ -250,8 +250,8 @@ export class PrincipalInfoService {
   //////////////////////////////////////
 
   //////////////////////USER/////////////////////
-  getUserInfo():Observable<UserData[]>{
-    return this.http.get<UserData[]>(this.apiURL+"users/get", HttpOptions);
+  getUserInfo():Observable<any>{
+    return this.http.get<any>(this.apiURL+"/users/get");
   }
 
   updateUserSubject():void{
@@ -266,6 +266,11 @@ export class PrincipalInfoService {
     this.userInfo = user;
     console.log("[principalInfoService] Dato de usuario modificado: ", this.userInfo);
   }*/
+
+  putUserInfo(user:UserData):Observable<UserData>{
+    let url = `${this.apiURL}/user/update/${user.id}`;
+    return this.http.put<UserData>(url, user, HttpOptions);
+  }
   //////////////////////////////////////////////
 
   /////////////EXPERIENCIA PROFESIONAL//////////////

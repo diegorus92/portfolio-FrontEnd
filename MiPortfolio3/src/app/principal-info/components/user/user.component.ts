@@ -3,6 +3,7 @@ import { faSquarePen } from '@fortawesome/free-solid-svg-icons';
 import { UserData } from 'src/app/interfaces/user';
 import { PrincipalInfoService } from 'src/app/services/principal-info.service';
 import { FormGroup, FormBuilder, Validators} from '@angular/forms';
+import { tap } from 'rxjs';
 
 @Component({
   selector: 'app-user',
@@ -17,7 +18,8 @@ export class UserComponent implements OnInit {
 
   //userData: UserData = this.principalInfoService.UserInfo; Usado con el MockUserData
   usersData: UserData[] = [];
-  userData:UserData = {name:"pipo", surname:"pepe", position:"person"};
+  userData:any = {name:"pipo", surname:"pepe", position:"person"};
+  userId = 0;
   editionForm:boolean = false;
   maxCharacters = 300;
 
@@ -51,7 +53,8 @@ export class UserComponent implements OnInit {
       console.log("User de api: ", usersInfo);
       this.usersData = usersInfo;
       this.userData = this.usersData[0];
-      
+      this.userId = usersInfo[0].userId;
+
       this.principalInfoService.usersInfo = usersInfo;
       this.principalInfoService.updateUserSubject();
     })
@@ -70,6 +73,18 @@ export class UserComponent implements OnInit {
       this.principalInfoService.modifyUserData(this.userForm.value as UserData);
       this.userData = this.principalInfoService.UserInfo;
       console.log("[UserComponent]Usuario modificado: ", this.userData);*/
+
+      console.log("[UserComponent] Datos recibidos desde el form", this.userForm.value as UserData);
+
+      let userToUpdate:UserData = this.userForm.value as UserData;
+      //userToUpdate.id = this.userData.userId;
+      userToUpdate.id = this.userId;
+      console.log("[UserComponent] Usuario actualizado a cargar", userToUpdate);
+
+      this.principalInfoService.putUserInfo(userToUpdate).subscribe(() => {
+        console.log("[UserComponent] modified user ", userToUpdate);
+        this.userData = userToUpdate;
+      });
     }
     else{
       alert("[UserComponent] Formulario inválido");
